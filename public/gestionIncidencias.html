@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Incidencias</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    header {
+      background-color: #f5f5f5;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      max-width: 100px;
+      height: auto;
+      margin-right: 10px;
+    }
+    header h3 {
+     font-size: 24px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0;
+    }
+
+    .navbar {
+      overflow: hidden;
+      background-color: #e0e0e0; /* Color de fondo más neutro */
+      font-size: 16px; /* Tamaño de fuente reducido */
+      display: flex; /* Para alinear elementos */
+      justify-content: space-between; /* Para separar los elementos en los extremos */
+      align-items: center; /* Para centrar verticalmente */
+      padding: 0 5px; /* Agregar un poco de espacio en los lados */
+    }
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+    .dropdown .dropbtn {
+      font-size: 18px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: #201e52;
+      font-family: inherit;
+      margin: 0;
+      transition: background-color 0.3s;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+      background-color: #244365;
+    }
+    .submenu .submenu-content {
+     display: none;
+     position: absolute;
+     background-color: #efe6d4; /* Beige */
+     min-width: 160px;
+     z-index: 1;
+     left: 100%;
+     margin-top: -1px;
+     left: calc(100% + 5px); /* Coloca el submenú a la derecha con un pequeño espacio de separación */
+    }
+
+    .submenu:hover .submenu-content {
+      display: block;
+      left: 100%; /* Ajusta el submenú hacia la derecha */
+      top: 0; /* Asegura que el submenú comience desde la parte superior */
+    }
+    .submenu {
+     position: relative;
+    }
+    .submenu .submenu-content-right {
+      display: none;
+     position: absolute;
+     background-color: #efe6d4;
+     min-width: 160px;
+     z-index: 1;
+     top: 0;
+     left: 100%;
+    }
+    .submenu:hover .submenu-content-right {
+      display: block;
+    }
+
+    .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: #efe6d4;
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+     z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      border-bottom: 1px solid #201e52;
+      left: 100%;
+      top: 0;
+      font-weight: bold;
+    }
+
+    .dropdown-content a:hover {
+     background-color: #201e52; /* Cambia el color de fondo de los elementos del menú desplegable al pasar el mouse sobre ellos */
+     color: #fff; /* Cambia el color del texto al pasar el mouse sobre los elementos del menú desplegable */
+    }
+    .dropdown:hover .dropbtn {
+      background-color: #d4b996; /* Cambia el color de fondo del botón al pasar el mouse sobre él */
+      color: #fff; /* Cambia el color del texto al pasar el mouse sobre él */
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    section h2 {
+      font-size: 28px;
+      color: #4282e0;
+      font-weight: bold;
+    }
+    li a:hover, .dropdown:hover .dropbtn {
+      background-color: #0f0a96;
+      color: #fff;
+    }
+    h1 span {
+     background-color: #d4b996; /* Fondo del texto */
+     padding: 5px 10px; /* Espaciado interno */
+     border-radius: 10px; /* Bordes redondeados */
+    }
+
+    h1 {
+      display: inline-block; /* Para que respete el ancho de su contenido */
+    }
+    
+ 
+    footer {
+      background-color: #201e52; /* Color de fondo más neutro */
+      border-top: 1px solid #201e52;
+      margin-top: 15%;
+      text-align: center;
+      color: white; /* Texto más oscuro */
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      justify-content: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 22%;
+    }
+
+  
+    .footer-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .styled-table {
+      width: 100%;
+      max-height: fit-content;
+      border-collapse: collapse;
+      border: 1px solid #ddd; /* Bordes de celda delgados */
+      font-size: 12px; /* Tamaño de fuente más pequeño */
+    }
+
+    .styled-table th,
+    .styled-table td {
+      border: 1px solid #ddd; /* Bordes de celda delgados */
+      padding: 8px;
+      text-align: center;
+    }
+
+    .styled-table th {
+      background-color: #f2f2f2; /* Fondo de encabezado */
+      font-weight: bold; /* Texto en negrita */
+    }
+
+    .styled-table tbody tr:hover {
+      background-color: #f9f9f9; /* Resaltar fila al pasar el cursor */
+    }
+
+    .styled-table tbody tr:nth-child(even) {
+      background-color: #f2f2f2; /* Color de fondo alternativo */
+    }
+
+
+        /* Ajuste de tamaño para las columnas de Faltas y Retardos */
+      .styled-table th:nth-child(4),
+      .styled-table th:nth-child(5),
+      .styled-table td:nth-child(4),
+      .styled-table td:nth-child(5) {
+        width: 40px; /* Ajustar el ancho de las celdas */
+      }
+
+    /* Reducir el tamaño del texto en las celdas de Faltas y Retardos */
+    .styled-table td:nth-child(4) input,
+    .styled-table td:nth-child(5) input {
+      font-size: 12px; /* Tamaño de fuente más pequeño */
+    }
+.button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      background-color: #4285F4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container button:hover {
+      background-color: #357ae8;
+    }
+
+    .regresar-btn{
+      font-size: 18px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: #201e52;
+      font-family: inherit;
+      margin: 0;
+      transition: background-color 0.3s;
+      border-bottom: 1px solid #0056b3;
+    }
+
+    nav {
+      background: #ebe8e8;
+      padding: 5px;
+      text-align: center;
+       border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: rgb(12, 12, 12);
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color:#244365;
+      color: white;
+            
+    }
+
+   
+  </style>
+
+</head>
+
+
+<body>
+<div class="container">
+    <header>
+      <h3>
+        <img src="logo1.png" alt="Logo">
+            Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+            <br> Departamento de Enseñanza 
+      </h3>
+    </header>
+
+    <nav class="navbar">
+      <div class="dropdown">
+       
+        <a href="unidad-incidencias.html">Consultar Incidencias</a>
+    
+      </div>
+
+      <a href="inicioSesionCoordinar.html">Regresar</a>
+
+   
+    </nav>
+
+
+    <div style="display: flex; justify-content: center;">
+      <div class="feedback-message" style="width: 100%; display: flex; justify-content: center;">
+        <form action= "/guardarincidencias" name="pasantesForm">
+
+          <br>
+          <br>
+          <br>
+  
+          <table id="pasantesTable" class="styled-table">
+            <tr>
+                <th>Nombre</th>
+                <th>Departamento</th>
+                <th>Promoción</th>
+                <th>Unidad</th>
+                <th>Mes</th>
+                <th>Incidencia</th>
+                <th>Motivo</th>
+              
+            </tr>
+
+       
+            <tr class="pasante">
+                <td><input type="text" name="nombre" required></td>
+                <td>
+                    <select name="departamento" required>
+                        <option value="">Selecciona departamento</option>
+                        <option value="Medicina">Medicina</option>
+                        <option value="Enfermeria">Enfermería</option>
+                        <option value="Odontologia">Odontología</option>
+                        <option value="Radiologia">Radiología</option>
+                        <option value="Nutricion">Nutrición</option>
+                        <option value="Terapia Fisica">Terapia Fisica</option>
+                        <option value="Psicología">Psicología</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="promocion" required>
+                        <option value="">Selecciona Promoción</option>
+                        <option value="Promocion Agosto 2024">Agosto 2024 </option>
+                        <option value="Promocion Febrero 2025">Febrero 2025 </option>
+                    </select>
+                </td>
+                <td>
+                  <select name="unidad" required>
+                      <option value="CAAPS ÁGUILAS ZARAGOZA">CAAPS ÁGUILAS ZARAGOZA</option>
+                      <option value="CESSA SENDEROS DEL SOL">CESSA SENDEROS DEL SOL</option>
+                      <option value="CENTRO DE SALUD FIDEL AVILA">CENTRO DE SALUD FIDEL AVILA</option>
+                      <option value="CS GUADALUPE">CS GUADALUPE</option>
+                      <option value="CENTRO DE SALUD SAN ISIDRO">CENTRO DE SALUD SAN ISIDRO</option>
+                      <option value="CS PORVENIR"> CS PORVENIR</option>
+                      <option value="CS PRAXEDIS G. GUERRERO">CS PRAXEDIS G. GUERRERO</option>
+                      <option value="UNIDAD MÉDICA MÓVIL FEDERAL 2 EL MILLÓN">UNIDAD MÉDICA MÓVIL FEDERAL 2 EL MILLÓN</option>
+                      <option value="CESSA COLINAS DE JUÁREZ">CESSA COLINAS DE JUÁREZ</option>
+                      <option value="CENTRO DE SALUD DIVISIÓN DEL NORTE">CENTRO DE SALUD DIVISIÓN DEL NORTE</option>
+                      <option value="CENTRO DE SALUD REVOLUCIÓN MEXICANA">CENTRO DE SALUD REVOLUCIÓN MEXICANA</option>
+                      <option value="CS SAMALAYUCA">CS SAMALAYUCA</option>
+                      <option value="CS AHUMADA ">CS AHUMADA</option>
+                      <option value="UNIDAD MÉDICA MÓVIL FEDERAL SAN LORENCITO">UNIDAD MÉDICA MÓVIL FEDERAL SAN LORENCITO</option>
+                      <option value="CENTRO DE SALUD GALEANA">CENTRO DE SALUD GALEANA</option>
+                      <option value="CS #6 INDEPENDENCIA II">CS #6 INDEPENDENCIA II</option>
+                      <option value="CS #7 INDEPENDENCIA I">CS #7 INDEPENDENCIA I</option>
+                      <option value="CENTRO DE SALUD AZTECA I">CENTRO DE SALUD AZTECA I</option>
+                      <option value="CENTRO DE SALUD AZTECA II">CENTRO DE SALUD AZTECA II</option>
+                      <option value="CS COMUNITARIO #10 MORELOS">CS COMUNITARIO #10 MORELOS</option>
+                      <option value="CENTRO DE SALUD TODOS SOMOS MEXICANOS">CENTRO DE SALUD TODOS SOMOS MEXICANOS</option>
+                      <option value="CENTRO DE SALUD DR. LUIS ESTAVILLO MUÑOZ">CENTRO DE SALUD DR. LUIS ESTAVILLO MUÑOZ</option>
+                      <option value="CAAPS RANCHO ANAPRA"> CAAPS RANCHO ANAPRA</option>
+                      <option value="CENTRO DE SALUD PLUTARCO ELÍAS CALLES">CENTRO DE SALUD PLUTARCO ELÍAS CALLES</option>
+                      <option value="CS COMUNITARIO #12 SAN FELIPE">CS COMUNITARIO #12 SAN FELIPE</option>
+                      <option value="UNIDAD DE INVESTIGACION ENTOMOLÓGICA Y BIOENSAYOS">UNIDAD DE INVESTIGACION ENTOMOLÓGICA Y BIOENSAYOS</option>
+                      <option value="CENTRO REGULADOR DE URGENCIAS MEDICAS (CRUM)">CENTRO REGULADOR DE URGENCIAS MEDICAS (CRUM)</option>
+                      <option value="LABORATORIO JURISDICCIONAL">LABORATORIO JURISDICCIONAL</option>
+                      <option value="BANCO DE SANGRE">BANCO DE SANGRE</option>
+                      <option value="BANCO DE LECHE">BANCO DE LECHE</option>
+                      <option value="CREDI">CREDI</option>
+                      <option value="DEDICAM">DEDICAM</option>
+                      <option value="FUNDACION INTEGRA">FUNDACION INTEGRA</option>
+                      <option value="ALBERGUE: LEONA VICARIO">ALBERGUE: LEONA VICARIO</option>
+      
+                  </select>
+                </td>
+                <td><input type="text" name="mes" required></td>
+                <td>
+                  <select name="incidencia" required>
+                    <option value="Amonestación escrita">Amonestación escrita</option>
+                    <option value="Extrañamiento">Extrañamiento</option>
+                    <option value="Baja">Baja</option>
+                  </select>
+                </td>
+                <td><input type="text" name="motivo"></td>
+            </tr>
+            <!-- Fin de campos para el primer pasante -->
+          </table>
+
+          <div class="button-container">
+       
+        
+
+         <!-- Botón para enviar el formulario -->
+          <button type="submit">Guardar</button>
+         </div>
+          <br>
+        </form>
+    </div>
+  </div>
+  </main>
+
+  <br>
+
+  <footer>
+      
+      <p>Avenida Paseo Triunfo de la República No 3530, 
+        Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+        Ciudad Juárez, Chihuahua, México. 
+        <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m. 
+        Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510</p>
+    </footer>
+  </div>
+
+
+ 
+
+</body>
+</html>

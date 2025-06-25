@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directorio y Servicios</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        }
+
+        .container {
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        }
+
+        header {
+        background-color: #f5f5f5;
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+        color: #333;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+        max-width: 100px;
+        height: auto;
+        margin-right: 10px;
+        }
+        header h3 {
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        }
+
+        .navbar {
+        overflow: hidden;
+        background-color: #e0e0e0; /* Color de fondo más neutro */
+        font-size: 16px; /* Tamaño de fuente reducido */
+        display: flex; /* Para alinear elementos */
+        justify-content: space-between; /* Para separar los elementos en los extremos */
+        align-items: center; /* Para centrar verticalmente */
+        padding: 0 20px; /* Agregar un poco de espacio en los lados */
+        }
+        .dropdown {
+        float: left;
+        overflow: hidden;
+        }
+        .dropdown .dropbtn {
+        font-size: 18px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: #201e52;
+        font-family: inherit;
+        margin: 0;
+        transition: background-color 0.3s;
+        border-bottom: 1px solid #ccc;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+        background-color: #efe6d4;
+        }
+        .submenu .submenu-content {
+        display: none;
+        position: absolute;
+        background-color: #efe6d4; /* Beige */
+        min-width: 160px;
+        z-index: 1;
+        left: 100%;
+        margin-top: -1px;
+        left: calc(100% + 5px); /* Coloca el submenú a la derecha con un pequeño espacio de separación */
+        }
+
+        .submenu:hover .submenu-content {
+        display: block;
+        left: 100%; /* Ajusta el submenú hacia la derecha */
+        top: 0; /* Asegura que el submenú comience desde la parte superior */
+        }
+        .submenu {
+        position: relative;
+        }
+        .submenu .submenu-content-right {
+        display: none;
+        position: absolute;
+        background-color: #efe6d4;
+        min-width: 160px;
+        z-index: 1;
+        top: 0;
+        left: 100%;
+        }
+        .submenu:hover .submenu-content-right {
+        display: block;
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #efe6d4;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        float: none;
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        border-bottom: 1px solid #201e52;
+        left: 100%;
+        top: 0;
+        font-weight: bold;
+        }
+
+        .dropdown-content a:hover {
+        background-color: #201e52; /* Cambia el color de fondo de los elementos del menú desplegable al pasar el mouse sobre ellos */
+        color: #fff; /* Cambia el color del texto al pasar el mouse sobre los elementos del menú desplegable */
+        }
+        .dropdown:hover .dropbtn {
+        background-color: #201e52; /* Cambia el color de fondo del botón al pasar el mouse sobre él */
+        color: #fff; /* Cambia el color del texto al pasar el mouse sobre él */
+        }
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+        section h2 {
+        font-size: 28px;
+        color: #4282e0;
+        font-weight: bold;
+        }
+        li a:hover, .dropdown:hover .dropbtn {
+        background-color: #0f0a96;
+        color: #fff;
+        }
+        h1 span {
+        background-color: #d4b996; /* Fondo del texto */
+        padding: 5px 10px; /* Espaciado interno */
+        border-radius: 10px; /* Bordes redondeados */
+        }
+
+        h1 {
+        display: inline-block; /* Para que respete el ancho de su contenido */
+        }
+        
+    
+        footer {
+          background-color: #201e52;; /* Color de fondo más neutro */
+          border-top: 1px solid #201e52;; 
+          text-align: center;
+          color: white; /* Texto más oscuro */
+          display: flex;
+          align-items: center;
+          font-size: 13px;
+          justify-content: center;
+          box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+       
+        }
+
+     
+
+        .footer-text {
+        flex: 1;
+        text-align: left;
+        }
+        
+
+      table {
+        width: 100%; /* Ancho total del contenedor */
+        /* O puedes especificar un ancho fijo */
+        /* width: 800px; */
+      }
+      table {
+      border-collapse: collapse; /* Fusionar los bordes de la tabla */
+      border-spacing: 0; /* Sin espacio entre las celdas */
+      }
+      td, th {
+      border: 1px solid #ddd; /* Bordes de las celdas */
+      padding: 8px; /* Espaciado interno de las celdas */
+    }     
+    th {
+    background-color: #f2f2f2; /* Color de fondo */
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+    }
+    tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo para filas pares */
+    }
+    table {
+    font-family: Arial, sans-serif; /* Fuente del texto */
+    }
+  </style>
+</head>
+<div class="container">
+    <header>
+      <h3>
+        <img src="logo1.png" alt="Logo">
+            Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+            <br> Departamento de Enseñanza 
+    </h3>
+    </header>
+
+    <nav class="navbar">
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a class="menu-inicio" href="inicio.html">Inicio</a>
+                <div class="submenu">
+                    <a class="menu-usuario" href="#">Usuarios</a>
+                    <div class="submenu-content">
+                        <a href="cordinador.html">Coordinador</a>
+                        <a href="directorUnidad.html">Director de Unidad</a>
+                        <a href="pasantes.html">Pasantes</a>
+                    </div>
+                </div>
+                <a class="menu-vinculacion" href="acerca.html">Acerca de Nosotros</a>
+                <div class="submenu">
+                    <a class="menu-investigacion" href="#">Investigación</a>
+                    <div class="submenu-content-right">
+                      <a href="liberacionServicio.html">Liberación de Servicio</a>
+                      <a href="trabajoFinal.html">Trabajo Final</a>
+                    </div>
+                  </div>
+                <a class="menu-vinculacion" href="vinculacion.html">Vinculación</a>
+                <a class="menu-directorios" href="directorio.html">Directorio</a>
+                <a class="menu-servicios" href="servicios.html">Servicios</a>
+                <a class="menu-buzon" href="buzon.html">Buzón de quejas y suguerencias</a>
+                <a class="menu-calendario" href="/ver-evento">Calendario</a>
+        </div>
+      </div>
+     
+    </nav>
+
+    <main>
+      <h1><span>Servicios</span></h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>UNIDAD</th>
+            <th>DIRECCIÓN</th>
+            <th>TELÉFONO</th>
+            <th>HORARIO</th>
+            <th>SERVICIOS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CAAPS ÁGUILAS</td>
+            <td>C. Tezozomoc esq. con Tecpancaltzin s/n Col. Águilas de Zaragoza</td>
+            <td>656 8-43-80-75</td>
+            <td>Matutino, Vespertino y Jornada Acumulada</td>
+            <td>Consulta externa, atención médica continua, laboratorios, RX, mastografía, tamiz metabólico, citología convencional, prueba de detección VPH, estimulación temprana, pruebas rápidas VIH, sífilis, vacunación, odontólogo, psicólogo, nutriólogo, vasectomía sin bisturí, servicio perinatal, servicios amigables, servicios especializados de atención a la violencia de género</td>
+          </tr>
+          <tr>
+            <td>CESSA SENDEROS DEL SOL </td>
+            <td>Fundadores de América #4238, Col. Senderos del Sol</td>
+            <td>656-629-33-00, extensiones 54601 y 54602</td>
+            <td>Matutino</td>
+            <td>Consulta externa, Urgencias, Laboratorios, RX, Tamiz metabólico, Citología convencional, Prueba de detección VPH, Estimulación temprana, Pruebas rápidas VIH, Sífilis, Vacunación, Odontólogo, Psicólogo, Nutriólogo, Servicios amigables, Servicio especializado de atención a la violencia de género</td>
+          </tr>
+          <tr>
+            <td>CENTRO DE SALUD FIDEL AVILA</td>
+            <td>C. Fidel Avila y C. Parral 2210 Col. Fidel Avila</td>
+            <td>656--631-20-87</td>
+            <td>Matutino</td>
+            <td>Consulta general, vacunación, citología convencional, pruebas rápidas VIH, sífilis</td>
+          </tr>
+          <tr>
+            <td>CS GUADALUPE</td>
+            <td>C. Ramon Aranda # 436 Mpio. Guadalupe</td>
+            <td>[Teléfono]</td>
+            <td>Matutino</td>
+            <td>Consulta general, odontólogo, vacunación, citología convencional, pruebas rápidas VIH, sífilis, telemedicina</td>
+          </tr>
+          <tr>
+            <td>CENTRO DE SALUD SAN ISIDRO</td>
+            <td>Carretera Juarez-Porvenir</td>
+            <td>[Teléfono]</td>
+            <td>Matutino</td>
+            <td>Consulta general, vacunación, citología convencional, pruebas rápidas VIH, sífilis</td>
+          </tr>
+          <tr>
+            <td>CS PORVENIR</td>
+            <td>C. Benito Juarez s/n Localidad El Porvenir</td>
+            <td>656 6530330</td>
+            <td>Matutino</td>
+            <td>Consulta general, vacunación, citología convencional, pruebas rápidas VIH, sífilis</td>
+          </tr>
+          <tr>
+            <td>CS PRAXEDIS G. GUERRERO</td>
+            <td>Av. Coahuila s/n Col. Centro Mpio. de Praxedis G. Guerrero</td>
+            <td>656-653-03-30</td>
+            <td>Matutino</td>
+            <td>Consulta general, odontología, servicios amigables, urgencias, laboratorios, tamiz metabólico, citología convencional, prueba de detección VPH, estimulación temprana, pruebas rápidas VIH, sífilis, vacunación, telemedicina, psicología</td>
+          </tr>
+          <tr>
+            <td>UNIDAD MÉDICA MÓVIL FEDERAL 2 EL MILLÓN</td>
+            <td>Localidades del Valle de Juárez</td>
+            <td>656-349-95-75</td>
+            <td>Matutino</td>
+            <td>Consulta general, odontólogo, vacunación, citología convencional, pruebas rápidas VIH, sífilis</td>
+          </tr>
+          <tr>
+            <td>CESSA COLINAS DE JUÁREZ</td>
+            <td>C. Zacatecas # 6330 Col. Colinas de Juarez</td>
+            <td>656-170-36-29</td>
+            <td>Matutino</td>
+            <td>Consulta general, urgencias, odontología, nutrición, vacunación, citología convencional, laboratorios, RX, mastografías, pruebas rápidas VIH, sífilis, tamiz metabólico, servicios amigables, servicios especializados de atención a la violencia de género</td>
+          </tr>
+          <tr>
+            <td>CENTRO DE SALUD DIVISIÓN DEL NORTE</td>
+            <td>C. Tercera # 881 Col. División del Norte</td>
+            <td>656-631 - 09 - 87</td>
+            <td>Matutino y Vespertino</td>
+            <td>Consulta general, nutrición, vacunación, citología convencional, pruebas rápidas VIH, sífilis, estimulación temprana</td>
+          </tr>
+          <tr>
+            <td>CENTRO DE SALUD REVOLUCIÓN MEXICANA</td>
+            <td>C. Luis Herrera Cano y Enrique Hernandez # 2413 Col. Revolución Mexicana</td>
+            <td>656-653-03-03</td>
+            <td>Matutino y Vespertino</td>
+            <td>Consulta general, nutrición, psicología, vacunación, citología convencional, pruebas rápidas VIH, sífilis, estimulación temprana, psicología</td>
+          </tr>
+          <tr>
+            <td>CS SAMALAYUCA</td>
+            <td>Carretera Panamericana Antigua y Morelos s/n Localidad de Samalayuca</td>
+            <td>656-664-53-12</td>
+            <td>Matutino</td>
+            <td>Consulta general, nutrición, vacunación, citología convencional, pruebas rápidas VIH, sífilis, estimulación temprana</td>
+          </tr>
+          <tr>
+            <td>CS AHUMADA</td>
+            <td>C. Benito Juarez #1505 entre C. Joaquin Amaro y Felix Ugomez, Barrio Chihuahuita</td>
+            <td>656-664-30-99</td>
+            <td>MATUTINO, VESPERTINO Y JORNADA ACUMULADA</td>
+            <td>Consulta externa, odontología, nutrición, tamiz metabólico, citología convencional, prueba de detección VPH, estimulación temprana, RX, laboratorios, telemedicina, servicios amigables</td>
+          </tr>
+          <tr>
+            <td>UNIDAD MÉDICA MÓVIL FEDERAL SAN LORENCITO</td>
+            <td>Localidades: Ojo Laguna, San Lorencito, Ejido La Esperanza, Colonia Valle La Esperanza, Moctezuma, Las Playas, Álamos de Peña, Nueva Holanda Ahumada</td>
+            <td>656-134-59-88</td>
+            <td>MATUTINO</td>
+            <td>Consulta general, odontología, tamiz metabólico, vacunación, citología convencional</td>
+          </tr>
+          <tr>
+            <td>CENTRO DE SALUD GALEANA</td>
+            <td>C. Tlapa No. 241 Col. Hermenegildo Galeana</td>
+            <td>656-610-18-41</td>
+            <td>MATUTINO Y VESPERTINO</td>
+            <td>Consulta externa, odontología, nutrición, psicología, citología convencional, prueba de detección VPH, estimulación temprana, prueba EDI, vasectomías sin bisturí, laboratorios, servicios amigables</td>
+          </tr>
+          <tr>
+            <td>CS #6 INDEPENDENCIA II</td>
+            <td>C. Isaura Espinoza #7404 Col. Independencia II</td>
+            <td>656-640-76-99</td>
+            <td>MATUTINO</td>
+            <td>Consulta general, vacunación, citología convencional, prueba de detección VPH, estimulación temprana</td>
+          </tr>
+          <tr>
+            <td>CS #7 INDEPENDENCIA I</td>
+            <td>C. Cartagena y Arroyo del Indio Col. Independencia I</td>
+            <td>656-640-63-19</td>
+            <td>MATUTINO</td>
+            <td>Consulta general, nutrición, psicología, vacunación, citología convencional, prueba de detección VPH, estimulación temprana</td>
+          </tr>
+          <tr>
+            <td>CENTRO DE SALUD AZTECA I</td>
+            <td>C. Chamulas y Tlahuicas S/N Col. Azteca I</td>
+            <td>656-640-76-84</td>
+            <td>MATUTINO</td>
+            <td>Consulta general, psicología, vacunación, citología convencional, prueba de detección VPH, estimulación temprana</td>
+          </tr>
+          <tr>
+            <td>CENTRO DE SALUD AZTECA II</td>
+            <td>MPSS. PAOLA RANGEL C. OLMECAS Y TETZALES #6735 Col. Azteca II</td>
+            <td>656-686-51-97</td>
+            <td>MATUTINO</td>
+            <td>Consulta general, nutrición, vacunación, citología convencional, prueba de detección VPH, estimulación temprana</td>
+          </tr>
+          <tr>
+            <td>CS COMUNITARIO #10 MORELOS</td>
+            <td>C. Pedernal y Cuazo S/N Col. Morelos</td>
+            <td>656-630-45-48</td>
+            <td>MATUTINO</td>
+            <td>Consulta general, nutrición, vacunación, citología convencional, prueba de detección VPH, estimulación temprana</td>
+          </tr>
+          <tr>
+            <td>CENTRO DE SALUD TODOS SOMOS MEXICANOS</td>
+            <td>C. David Herrera Jordan, S/N Col. Centro, Chamizal</td>
+            <td>629-33-00 EXT 54001</td>
+            <td>MATUTINO, VESPERTINO Y JORNADA ACUMULADA</td>
+            <td>Consulta general, psicología, nutrición, trabajo social, odontología, vasectomía sin bisturí, servicios especializados de atención a la violencia de género, servicios amigables, atención médica continua, laboratorios, RX, citología convencional VPH, pruebas rápidas VIH, sífilis, vacunación</td>
+          </tr>
+          <tr>
+            <td>CENTRO DE SALUD DR. LUIS ESTAVILLO MUÑOZ</td>
+            <td>C. José Martí #2824 Col. Hidalgo</td>
+            <td>656-613-52-48</td>
+            <td>MATUTINO</td>
+            <td>Consulta general, psicología, tamiz metabólico, citología convencional, prueba de detección VPH, estimulación temprana, pruebas rápidas VIH, sífilis, vacunación</td>
+          </tr>
+          <tr>
+            <td>CAAPS RANCHO ANAPRA</td>
+            <td>C. Raya y Delfín S/N Col. Puerto Anapra</td>
+            <td>656-666-49-18</td>
+            <td>MATUTINO</td>
+            <td>Consulta general, nutrición, odontología, psicología, vasectomía sin bisturí, tamiz metabólico, citología convencional, prueba de detección VPH, estimulación temprana, pruebas rápidas VIH, sífilis, vacunación, programa salud perinatal, servicios amigables</td>
+          </tr>
+          <tr>
+            <td>CENTRO DE SALUD PLUTARCO ELÍAS CALLES</td>
+            <td>C. Tolcayuca e Isla Curazao S/N Col. Plutarco E. Calles</td>
+            <td>6562-59-13-18</td>
+            <td>MATUTINO Y VESPERTINO</td>
+            <td>Consulta general, nutrición, odontología, vasectomía sin bisturí, tamiz metabólico, citología convencional, prueba de detección VPH, estimulación temprana, pruebas rápidas VIH, sífilis, vacunación</td>
+          </tr>
+          <tr>
+            <td>CS COMUNITARIO #12 SAN FELIPE</td>
+            <td>C. Boro y Mina Col. San Felipe</td>
+            <td>656-612-39-63</td>
+            <td>MATUTINO Y VESPERTINO</td>
+            <td>Consulta general, nutrición, odontología, tamiz metabólico, citología convencional, prueba de detección VPH, estimulación temprana, pruebas rápidas VIH, sífilis, vacunación, servicio especializados de atención a la violencia de género, salud perinatal, servicios amigables y curaciones</td>
+          </tr>
+          <tr>
+            <td>UNIDAD DE INVESTIGACIÓN ENTOMOLÓGICA Y BIOENSAYOS</td>
+            <td>C. Fidel Avila #2214-1 Col. Fidel Avila</td>
+            <td>623-33-00 EXT. 54442, 54441</td>
+            <td>MATUTINO</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>CENTRO REGULADOR DE URGENCIAS MÉDICAS (CRUM)</td>
+            <td>C. José Martí #2824 Col. Hidalgo</td>
+            <td>6566-11-79-93 (Teléfono de CRUM directo), 6566-29-33-00 ext. 50044 o 50045 o 50043</td>
+            <td>MATUTINO, VESPERTINO Y JORNADA ACUMULADA</td>
+            <td>Sistema de emergencias eficiente que otorga una asistencia rápida y precisa para las personas que se encuentran en situación de vulnerabilidad por una emergencia/urgencia, abarcando desde la recepción de la llamada brindando la información necesaria y protocolos para contener dicha emergencia durante el periodo de espera de la unidad médica así despacho de la misma, seguimiento y cierre del incidente.</td>
+          </tr>
+          <tr>
+            <td>LABORATORIO JURISDICCIONAL</td>
+            <td>C. David Herrera Jordan, S/N Col. Centro, Chamizal (antes recaudación de rentas)</td>
+            <td>656-629-33-00 ext. 54079</td>
+            <td>MATUTINO</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>BANCO DE SANGRE</td>
+            <td>C. David Herrera Jordan, S/N Col. Centro, Chamizal (antes recaudación de rentas)</td>
+            <td>629-33-00 ext. 540878</td>
+            <td>MATUTINO, VESPERTINO Y JORNADA ACUMULADA</td>
+            <td>Donación altruista de sangre</td>
+          </tr>
+          <tr>
+            <td>BANCO DE LECHE</td>
+            <td>AV. Paseo Triunfo de la República No. 3530 Col. Partido Romero. Quinto piso del Hospital de la Mujer</td>
+            <td>656-611-53-07</td>
+            <td>MATUTINO Y VESPERTINO</td>
+            <td>Recepción para su pasteurización y posterior uso en recién nacido hospitalizados enfermos o prematuros que no pueden tener acceso a la leche de su madre</td>
+          </tr>
+          
+    
+          
+        </tbody>
+      </table>
+      
+    </main>
+
+    <br>
+
+    <footer>
+   
+      <p>Avenida Paseo Triunfo de la República No 3530, 
+      Col. Partido Escobedo (a un costado del Hospital de la Mujer). Ciudad Juárez, Chihuahua, México.
+      <br>Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m. Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510</p>
+    </footer>
+  </div>
+</body>
+</html>

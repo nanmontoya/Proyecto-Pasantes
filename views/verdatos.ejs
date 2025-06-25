@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Datos Personales</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #f2f2f2;
+            color: rgb(3, 3, 3);
+            text-align: center;
+            padding: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        header h3 {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav {
+            background: #ebe8e8;
+            padding: 5px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: rgb(12, 12, 12);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color:#244365;
+            color: white;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 700px;
+            max-width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+
+        footer {
+            background-color: #201e52; /* Color de fondo más neutro */
+            border-top: 1px solid #211f5d;
+            padding: 10px 0; /* Padding ajustado */
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
+    }
+
+    .section {
+         width: 60%; /* Ajusta el ancho según tus necesidades */
+
+    }
+
+    .container {
+            display: flex;
+            justify-content: space-between;
+            
+        }
+
+      
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="logo1.png" alt="Logo">
+        <h3>Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+            <br> Departamento de Enseñanza
+        </h3>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav>
+    
+        <a style="float: right;" href="iniciarSesionPasante.html">Regresar</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <form id="justificanteForm">
+
+               
+                <% resultados.forEach(function(row) { %>
+                    <div>
+                        <h2>Datos Personales</h2>
+                        <p>ID Pasante:  <%= row.usuario %></p>
+                        <p>Nombre:  <%= row.nombre %></p>
+                        <p>RFC:  <%= row.rfc %></p>
+                        <p>CURP:  <%= row.curp %></p>
+                        <p>Sexo:  <%= row.sexo %></p>
+                        <p>Estado Civil:  <%= row.estadocivil %></p>
+                        <p>Calle y numero:  <%= row.calle_numero %></p>
+                        <p>Colonia:  <%= row.colonia %></p>
+                        <p>Codigo Postal:  <%= row.codigopostal %></p>
+                        <p>Delegacion:  <%= row.delegacion %></p>
+                        <p>CLABE Bancaria:  <%= row.clabeban %></p>
+                        <p>Banco:  <%= row.banco %></p>
+                        <p>Unidad:  <%= row.unidad %></p>
+                        <p>Departamento:  <%= row.departamento %></p>
+                        <p>Plaza:  <%= row.plaza %></p>
+                        <p>Clues:  <%= row.clues %></p>
+                    </div>
+                <% }); %>
+            </form>
+
+        </main>
+        <br>
+
+    </div>
+
+   
+    <footer>
+   
+        <p> Avenida Paseo Triunfo de la República No 3530, 
+            Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+            Ciudad Juárez, Chihuahua, México.
+            <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m.
+            Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510 </p>
+    </footer>
+</body>
+
+</html>

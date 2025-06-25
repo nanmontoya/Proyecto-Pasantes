@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inicio de sesion de coordinador</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+        }
+        
+
+        header {
+            background-color: #e0e0e0;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        header h3 {
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav {
+            background: #ebe8e8;
+            padding: 5px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: rgb(12, 12, 12);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color:#244365;
+            color: white;
+            
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cuadro {
+            width: 300px;
+            height: 150px;
+            background-color: #211f5d;
+            border-radius: 10px;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .cuadro a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        footer {
+            background-color: #201e52; /* Color de fondo más neutro */
+            border-top: 1px solid #211f5d;
+            padding: 10px 0; /* Padding ajustado */
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    }  
+
+    section h2 {
+      font-size: 28px;
+      color: #4282e0;
+      font-weight: bold;
+    }
+    li a:hover, .dropdown:hover .dropbtn {
+      background-color: #0f0a96;
+      color: #fff;
+    }
+    h1 span {
+     background-color: #d4b996; /* Fondo del texto */
+     padding: 5px 10px; /* Espaciado interno */
+     border-radius: 10px; /* Bordes redondeados */
+     margin-left: 700px;
+    }
+
+    h1 {
+      display: inline-block; /* Para que respete el ancho de su contenido */
+    }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="logo1.png" alt="Logo">
+        <h3>Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+            <br> Departamento de Enseñanza
+        </h3>
+    </header>
+
+    <nav>
+        <a href="lista"> Listado de Pasantes</a>
+        <a href="consulta-asistencia2"> Consulta de Asistencia</a>
+        <a href="consulta-incidencias2"> Consulta de Incidencias</a>
+        <a href="actualizar_contrasena2.html">Actualizar Contraseña</a>
+        <a href="formularioJustificante1.html">Generar Justificante</a>
+        <a href="formularioVacaciones1.html">Generar Permiso Vacacional</a>
+        <a style="float: right;" href="inicio.html">Cerrar Sesión</a>
+    </nav>
+
+    <main>
+        <form id="justificanteForm">
+            <h2> Bienvenido Director de Unidad </h2>
+           
+
+        </form>
+        
+    </main>
+
+
+    <main>
+        <!-- Cuadros para los enlaces -->
+        <div class="cuadro">
+            <a href="gestionAsistencia1.html"> Gestión de Asistencia </a>
+        </div>
+        <div class="cuadro">
+            <a href="hojaComision.html"> Generar Hoja de Comision</a>
+        </div>
+        <div class="cuadro">
+            <a href="gestionIncidencias1.html">Incidencias</a>
+        </div>
+    </main>
+
+    <footer>
+   
+        <p> Avenida Paseo Triunfo de la República No 3530, 
+            Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+            Ciudad Juárez, Chihuahua, México.
+            <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m.
+            Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510 </p>
+    </footer>
+
+    <script>
+
+        
+
+
+
+    </script>
+</body>
+
+</html>

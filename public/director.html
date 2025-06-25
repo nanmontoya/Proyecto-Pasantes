@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Iniciar Sesión Director</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        header {
+            background-color:#f5f5f5;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+
+        }
+
+        header img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        header h3 {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], input[type="reset"], input[type="button"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+            background-color: #007BFF; /* Cambio de color al pasar el mouse */
+        }
+
+        footer {
+            background-color: #201e52; /* Color de fondo más neutro */
+            border-top: 1px solid #201e52;
+            padding: 10px 0; /* Padding ajustado */
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+
+        .footer-text {
+            flex: 1;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h3>
+        <img src="logo1.png" alt="Logo">
+        Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+        <br> Departamento de Enseñanza
+    </h3>
+</header>
+
+<main>
+    <form action="/login2">
+        <h2>Inicio de Sesión</h2>
+        <fieldset>
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" name="usuario" maxlength="8" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" maxlength="8" required>
+            <label for="unidad">Unidad:</label>
+            <select type="text" id="unidad" name="unidad" required>
+                <option value="CAAPS ÁGUILAS ZARAGOZA">CAAPS ÁGUILAS ZARAGOZA</option>
+                <option value="CESSA SENDEROS DEL SOL">CESSA SENDEROS DEL SOL</option>
+                <option value="CENTRO DE SALUD FIDEL AVILA">CENTRO DE SALUD FIDEL AVILA</option>
+                <option value="CS GUADALUPE">CS GUADALUPE</option>
+                <option value="CENTRO DE SALUD SAN ISIDRO">CENTRO DE SALUD SAN ISIDRO</option>
+                <option value="CS PORVENIR">CS PORVENIR</option>
+                <option value="CS PRAXEDIS G. GUERRERO">CS PRAXEDIS G. GUERRERO</option>
+                <option value="UNIDAD MÉDICA MÓVIL FEDERAL 2 EL MILLÓN">UNIDAD MÉDICA MÓVIL FEDERAL 2 EL MILLÓN</option>
+                <option value="CESSA COLINAS DE JUÁREZ">CESSA COLINAS DE JUÁREZ</option>
+                <option value="CENTRO DE SALUD DIVISIÓN DEL NORTE">CENTRO DE SALUD DIVISIÓN DEL NORTE</option>
+                <option value="CENTRO DE SALUD REVOLUCIÓN MEXICANA">CENTRO DE SALUD REVOLUCIÓN MEXICANA</option>
+                <option value="CS SAMALAYUCA">CS SAMALAYUCA</option>
+                <option value="CS AHUMADA ">CS AHUMADA</option>
+                <option value="UNIDAD MÉDICA MÓVIL FEDERAL SAN LORENCITO">UNIDAD MÉDICA MÓVIL FEDERAL SAN LORENCITO</option>
+                <option value="CENTRO DE SALUD GALEANA">CENTRO DE SALUD GALEANA</option>
+                <option value="CS #6 INDEPENDENCIA II">CS #6 INDEPENDENCIA II</option>
+                <option value="CS #7 INDEPENDENCIA I">CS #7 INDEPENDENCIA I</option>
+                <option value="CENTRO DE SALUD AZTECA I">CENTRO DE SALUD AZTECA I</option>
+                <option value="CENTRO DE SALUD AZTECA II">CENTRO DE SALUD AZTECA II</option>
+                <option value="CS COMUNITARIO #10 MORELOS">CS COMUNITARIO #10 MORELOS</option>
+                <option value="CENTRO DE SALUD TODOS SOMOS MEXICANOS">CENTRO DE SALUD TODOS SOMOS MEXICANOS</option>
+                <option value="CENTRO DE SALUD DR. LUIS ESTAVILLO MUÑOZ">CENTRO DE SALUD DR. LUIS ESTAVILLO MUÑOZ</option>
+                <option value="CAAPS RANCHO ANAPRA"> CAAPS RANCHO ANAPRA</option>
+                <option value="CENTRO DE SALUD PLUTARCO ELÍAS CALLES">CENTRO DE SALUD PLUTARCO ELÍAS CALLES</option>
+                <option value="CS COMUNITARIO #12 SAN FELIPE">CS COMUNITARIO #12 SAN FELIPE</option>
+                <option value="UNIDAD DE INVESTIGACION ENTOMOLÓGICA Y BIOENSAYOS">UNIDAD DE INVESTIGACION ENTOMOLÓGICA Y BIOENSAYOS</option>
+                <option value="CENTRO REGULADOR DE URGENCIAS MEDICAS (CRUM)">CENTRO REGULADOR DE URGENCIAS MEDICAS (CRUM)</option>
+                <option value="LABORATORIO JURISDICCIONAL">LABORATORIO JURISDICCIONAL</option>
+                <option value="BANCO DE SANGRE">BANCO DE SANGRE</option>
+                <option value="BANCO DE LECHE">BANCO DE LECHE</option>
+                <option value="CREDI">CREDI</option>
+                <option value="DEDICAM">DEDICAM</option>
+                <option value="FUNDACION INTEGRA">FUNDACION INTEGRA</option>
+                <option value="ALBERGUE: LEONA VICARIO">ALBERGUE: LEONA VICARIO</option>
+                <option value="UNEME CISAME">UNEME CISAME</option>
+                <option value="UNEME CAPASITS">UNEME CAPASITS</option>
+                <option value="UNEME CREDI">UNEME CREDI</option>
+                <option value="CLINICA DE COLPOSCOPIA (DISPLASIAS)">CLINICA DE COLPOSCOPIA (DISPLASIAS)</option>
+
+            </select>
+          
+
+        </fieldset>
+
+        <input type="submit" value="Iniciar Sesión">
+        <input type="button" value="Regresar" onclick="window.location.href='inicio.html'">
+    </form>
+</main>
+
+
+<footer>
+   
+    <p> Avenida Paseo Triunfo de la República No 3530, 
+        Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+        Ciudad Juárez, Chihuahua, México.
+        <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m.
+        Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510 </p>
+</footer>
+
+</body>
+</html>
+
+

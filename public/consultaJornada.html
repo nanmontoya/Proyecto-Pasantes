@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Consulta de Jornada</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #f2f2f2;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 5px solid 173, 169, 169;
+        }
+
+        header img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        header h3 {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            max-width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], input[type="reset"], button, .boton-submit {
+            background-color: #007BFF;
+            color: white;
+            padding: 5 px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover, button:hover, .boton-submit:hover {
+            background-color: #0056b3; /* Cambia de color al pasar el ratón sobre el botón */
+        }
+
+        .boton-submit a {
+            text-decoration: none;
+            color: white;
+        }
+
+        footer {
+            background-color: #201e52; /* Color de fondo más neutro */
+            border-top: 1px solid #211f5d;
+            padding: 10px 0; /* Padding ajustado */
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+           
+        }
+
+        nav {
+            background: #ebe8e8;
+            padding: 5px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: rgb(12, 12, 12);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color:#244365;
+            color: white;
+            
+        }
+
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: white;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        p {
+        text-align: center;
+        color: #666;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>
+    <h3>
+        <img src="logo1.png" alt="Logo">
+        Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+        <br> Departamento de Enseñanza
+    </h3>
+</header>
+
+<nav>
+
+    <a href="actualizarjornada2.html">Actualizar Jornada</a>
+
+    <a style="float: right;" href="iniciarSesionPasante.html">Regresar</a>
+
+</nav>
+
+<main>
+    <form action="/jornada">
+      
+        <fieldset>
+
+            <h2>Ingresa tu ID Pasante</h2>
+      
+
+            <label for="usuario">ID Pasante:</label>
+            <input type="texto" name="usuario"  required>
+               
+        
+
+        </fieldset>
+
+        <input type="submit" value="Ver Jornada">
+       
+    </form>
+</main>
+
+<footer>
+   
+    <p style="color: white;"> Avenida Paseo Triunfo de la República No 3530, 
+        Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+        Ciudad Juárez, Chihuahua, México.
+        <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m.
+        Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510 </p>
+</footer>
+
+</body>
+</html>

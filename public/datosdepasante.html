@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Datos de los Pasantes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #f2f2f2;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 5px solid 173, 169, 169;
+        }
+
+        header img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        header h3 {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            max-width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], input[type="reset"], button, .boton-submit {
+            background-color: #007BFF;
+            color: white;
+            padding: 5 px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover, button:hover, .boton-submit:hover {
+            background-color: #0056b3; /* Cambia de color al pasar el ratón sobre el botón */
+        }
+
+        .boton-submit a {
+            text-decoration: none;
+            color: white;
+        }
+
+        footer {
+            background-color: #201e52; /* Color de fondo más neutro */
+            border-top: 1px solid #211f5d;
+            padding: 10px 0; /* Padding ajustado */
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: white;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+    </style>
+    <script>
+        function validarFormulario() {
+            var campos = document.querySelectorAll('input, textarea, select');
+            var formularioValido = true;
+
+            campos.forEach(function (campo) {
+                if (campo.required && campo.value.trim() === '') {
+                    formularioValido = false;
+                }
+            });
+
+            if (!formularioValido) {
+                alert('Por favor, completa todos los campos.');
+            }
+
+            return formularioValido;
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h3>
+        <img src="logo1.png" alt="Logo">
+        Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+        <br> Departamento de Enseñanza
+    </h3>
+</header>
+
+<main>
+    <form action="/guardardatos2">
+        <h2>Ingrese los datos del Pasante que desea agregar</h2>
+        <fieldset>
+
+            <label for="usuario">ID de Pasante:</label>
+            <input type="text" id="usuario" name="usuario" maxlength="8" required>
+
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" maxlength="50" required>
+
+            <label for="rfc">RFC:</label>
+            <input type="text" id="rfc" name="rfc" maxlength="13" required>
+
+            <label for="curp">CURP:</label>
+            <input type="text" id="curp" name="curp" maxlength="18" required>
+
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo" required>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+                <option value="No Binario">No Binario</option>
+            </select>
+
+            <label for="estadocivil">Estado Civil:</label>
+            <select id="estadocivil" name="estadocivil" required>
+                <option value="soltero">Soltero</option>
+                <option value="casado">Casado</option>
+                <option value="unionLibre">Unión libre</option>
+            </select>
+
+            <label for="calle_numero">Calle y número:</label>
+            <input type="text" id="calle_numero" name="calle_numero" required>
+
+            <label for="colonia">Colonia:</label>
+            <input type="text" id="colonia" name="colonia" maxlength="30" required>
+
+            <label for="codigopostal">Código Postal:</label>
+            <input type="number" id="codigopostal" name="codigopostal" maxlength="5" required>
+
+            <label for="delegacion">Delegación (Municipio):</label>
+            <input type="text" id="delegacion" name="delegacion" maxlength="20" required>
+
+            <label for="clabeban">CLABE Interbancaria:</label>
+            <input type="password" id="clabeban" name="clabeban" maxlength="18" required>
+
+            <label for="banco">Banco:</label>
+            <select id="banco" name="banco" required>
+                <option value="Banamex">Banamex</option>
+
+            </select>
+
+            <label for="promocion">Promoción:</label>
+            <select id="promocion" name="promocion" required>
+                <option value="Promocion Agosto 2024">Promoción Agosto 2024</option>
+                <option value="Promocion Febrero 2025">Promoción Febrero 2025</option>
+                <option value="Promocion Agosto 2025">Promoción Agosto  2025</option>
+            </select>
+
+            <label for="unidad">Centro (Unidad de asignación)</label>
+            <select id="unidad" name="unidad" required>
+                <option value="CAAPS ÁGUILAS ZARAGOZA">CAAPS ÁGUILAS ZARAGOZA</option>
+                <option value="CESSA SENDEROS DEL SOL">CESSA SENDEROS DEL SOL</option>
+                <option value="CENTRO DE SALUD FIDEL AVILA">CENTRO DE SALUD FIDEL AVILA</option>
+                <option value="CS GUADALUPE">CS GUADALUPE</option>
+                <option value="CENTRO DE SALUD SAN ISIDRO">CENTRO DE SALUD SAN ISIDRO</option>
+                <option value="CS PORVENIR"> CS PORVENIR</option>
+                <option value="CS PRAXEDIS G. GUERRERO">CS PRAXEDIS G. GUERRERO</option>
+                <option value="UNIDAD MÉDICA MÓVIL FEDERAL 2 EL MILLÓN">UNIDAD MÉDICA MÓVIL FEDERAL 2 EL MILLÓN</option>
+                <option value="CESSA COLINAS DE JUÁREZ">CESSA COLINAS DE JUÁREZ</option>
+                <option value="CENTRO DE SALUD DIVISIÓN DEL NORTE">CENTRO DE SALUD DIVISIÓN DEL NORTE</option>
+                <option value="CENTRO DE SALUD REVOLUCIÓN MEXICANA">CENTRO DE SALUD REVOLUCIÓN MEXICANA</option>
+                <option value="CS SAMALAYUCA">CS SAMALAYUCA</option>
+                <option value="CS AHUMADA ">CS AHUMADA</option>
+                <option value="UNIDAD MÉDICA MÓVIL FEDERAL SAN LORENCITO">UNIDAD MÉDICA MÓVIL FEDERAL SAN LORENCITO</option>
+                <option value="CENTRO DE SALUD GALEANA">CENTRO DE SALUD GALEANA</option>
+                <option value="CS #6 INDEPENDENCIA II">CS #6 INDEPENDENCIA II</option>
+                <option value="CS #7 INDEPENDENCIA I">CS #7 INDEPENDENCIA I</option>
+                <option value="CENTRO DE SALUD AZTECA I">CENTRO DE SALUD AZTECA I</option>
+                <option value="CENTRO DE SALUD AZTECA II">CENTRO DE SALUD AZTECA II</option>
+                <option value="CS COMUNITARIO #10 MORELOS">CS COMUNITARIO #10 MORELOS</option>
+                <option value="CENTRO DE SALUD TODOS SOMOS MEXICANOS">CENTRO DE SALUD TODOS SOMOS MEXICANOS</option>
+                <option value="CENTRO DE SALUD DR. LUIS ESTAVILLO MUÑOZ">CENTRO DE SALUD DR. LUIS ESTAVILLO MUÑOZ</option>
+                <option value="CAAPS RANCHO ANAPRA"> CAAPS RANCHO ANAPRA</option>
+                <option value="CENTRO DE SALUD PLUTARCO ELÍAS CALLES">CENTRO DE SALUD PLUTARCO ELÍAS CALLES</option>
+                <option value="CS COMUNITARIO #12 SAN FELIPE">CS COMUNITARIO #12 SAN FELIPE</option>
+                <option value="UNIDAD DE INVESTIGACION ENTOMOLÓGICA Y BIOENSAYOS">UNIDAD DE INVESTIGACION ENTOMOLÓGICA Y BIOENSAYOS</option>
+                <option value="CENTRO REGULADOR DE URGENCIAS MEDICAS (CRUM)">CENTRO REGULADOR DE URGENCIAS MEDICAS (CRUM)</option>
+                <option value="LABORATORIO JURISDICCIONAL">LABORATORIO JURISDICCIONAL</option>
+                <option value="BANCO DE SANGRE">BANCO DE SANGRE</option>
+                <option value="BANCO DE LECHE">BANCO DE LECHE</option>
+                <option value="CREDI">CREDI</option>
+                <option value="DEDICAM">DEDICAM</option>
+                <option value="FUNDACION INTEGRA">FUNDACION INTEGRA</option>
+                <option value="ALBERGUE: LEONA VICARIO">ALBERGUE: LEONA VICARIO</option>
+                <option value="UNEME CISAME">UNEME CISAME</option>
+                <option value="UNEME CAPASITS">UNEME CAPASITS</option>
+                <option value="UNEME CREDI">UNEME CREDI</option>
+                <option value="CLINICA DE COLPOSCOPIA (DISPLASIAS)">CLINICA DE COLPOSCOPIA (DISPLASIAS)</option>
+           
+
+            </select>
+          
+
+            <label for="departamento">Puesto (Carrera: Medicina, Enfermería, Odontología, Terapia Física, Radiología, Nutrición, Psicología):</label>
+            <select id="departamento" name="departamento" required>
+                <option value="Medicina">Medicina</option>
+                <option value="Enfermería">Enfermería</option>
+                <option value="Odontología">Odontología</option>
+                <option value="Radiología">Radiología</option>
+                <option value="Nutrición">Nutrición</option>
+                <option value="Terapia Fisica">Terapia Fisica</option>
+                <option value="Psicologia">Psicología</option>
+            </select>
+
+            <label for="plaza">Tipo de Plaza:</label>
+            <select id="plaza" name="plaza" required>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+
+            <label for="clues">CLUES:</label>
+            <select id="clues" name="clues" required>
+                <option value="CHSSA017966 CAAPS ÁGUILAS ZARAGOZA">CHSSA017966 CAAPS ÁGUILAS ZARAGOZA</option>
+                <option value="CHSSA018671 CESSA SENDEROS DEL SOL">CHSSA018671 CESSA SENDEROS DEL SOL</option>
+                <option value="CHSSA001941 CENTRO DE SALUD FIDEL AVILA">CHSSA001941 CENTRO DE SALUD FIDEL AVILA</option>
+                <option value="CHSSA001265 CS GUADALUPE">CHSSA001265 CS GUADALUPE</option>
+                <option value="CHSSA002052 CENTRO DE SALUD SAN ISIDRO">CHSSA002052 CENTRO DE SALUD SAN ISIDRO</option>
+                <option value="CHSSA002484 CS PORVENIR">CHSSA002484 CS PORVENIR</option>
+                <option value="CHSSA017971 CS PRAXEDIS G. GUERRERO">CHSSA017971 CS PRAXEDIS G. GUERRERO</option>
+                <option value="CHSSA018321 UNIDAD MÉDICA MÓVIL FEDERAL 2 EL MILLÓN">CHSSA018321 UNIDAD MÉDICA MÓVIL FEDERAL 2 EL MILLÓN</option>
+                <option value="CHSSA018666 CESSA COLINAS DE JUÁREZ ">CHSSA018666 CESSA COLINAS DE JUÁREZ </option>
+                <option value="CHSSA001842 CENTRO DE SALUD DIVISIÓN DEL NORTE ">CHSSA001842 CENTRO DE SALUD DIVISIÓN DEL NORTE </option>
+                <option value="CHSSA001866 CENTRO DE SALUD REVOLUCIÓN MEXICANA">CHSSA001866 CENTRO DE SALUD REVOLUCIÓN MEXICANA</option>
+                <option value="CHSSA002040 CS SAMALAYUCA ">CHSSA002040 CS SAMALAYUCA </option>
+                <option value="CHSSA017983 CS AHUMADA">CHSSA017983 CS AHUMADA</option>
+                <option value="CHSSA017896 UNIDAD MÉDICA MÓVIL FEDERAL SAN LORENCITO">CHSSA017896 UNIDAD MÉDICA MÓVIL FEDERAL SAN LORENCITO</option>
+                <option value="CHSSA002023 CENTRO DE SALUD GALEANA">CHSSA002023 CENTRO DE SALUD GALEANA</option>
+                <option value="CHSSA001871 CS #6 INDEPENDENCIA II">CHSSA001871 CS #6 INDEPENDENCIA II</option>
+                <option value="CHSSA001883 CS #7 INDEPENDENCIA I">CHSSA001883 CS #7 INDEPENDENCIA I</option>
+                <option value="CHSSA001895 CENTRO DE SALUD AZTECA I">CHSSA001895 CENTRO DE SALUD AZTECA I</option>
+                <option value="CHSSA001900 CENTRO DE SALUD AZTECA II">CHSSA001900 CENTRO DE SALUD AZTECA II</option>
+                <option value="CHSSA001912 CS COMUNITARIO #10 MORELOS ">CHSSA001912 CS COMUNITARIO #10 MORELOS </option>
+                <option value="CHSSA003213 CENTRO DE SALUD TODOS SOMOS MEXICANOS">CHSSA003213 CENTRO DE SALUD TODOS SOMOS MEXICANOS</option>
+                <option value="CHSSA001953 CENTRO DE SALUD DR. LUIS ESTAVILLO MUÑOZ">CHSSA001953 CENTRO DE SALUD DR. LUIS ESTAVILLO MUÑOZ</option>
+                <option value="CHSSA001970 CAAPS RANCHO ANAPRA">CHSSA001970 CAAPS RANCHO ANAPRA</option>
+                <option value="CHSSA001982 CENTRO DE SALUD PLUTARCO ELÍAS CALLES">CHSSA001982 CENTRO DE SALUD PLUTARCO ELÍAS CALLES</option>
+                <option value="CHSSA002006 CS COMUNITARIO #12 SAN FELIPE ">CHSSA002006 CS COMUNITARIO #12 SAN FELIPE </option>
+                <option value="CHSSA003365 UNIDAD DE INVESTIGACION ENTOMOLÓGICA Y BIOENSAYOS">CHSSA003365 UNIDAD DE INVESTIGACION ENTOMOLÓGICA Y BIOENSAYOS</option>
+                <option value="NO APLICA CENTRO REGULADOR DE URGENCIAS MEDICAS (CRUM)">NO APLICA CENTRO REGULADOR DE URGENCIAS MEDICAS (CRUM)</option>
+                <option value="NO APLICA LABORATORIO JURISDICCIONAL">NO APLICA LABORATORIO JURISDICCIONAL</option>
+                <option value="NO APLICA BANCO DE SANGRE">NO APLICA BANCO DE SANGRE</option>
+                <option value="NO APLICA BANCO DE LECHE">NO APLICA BANCO DE LECHE</option>
+                <option value="CHSSA018210 UNEME CISAME">CHSSA018210 UNEME CISAME</option>
+                <option value="CHSSA017691 UNEME CAPASITS">CHSSA017691 UNEME CAPASITS</option>
+                <option value="CHSSA003225 UNEME CREDI">CHSSA003225 UNEME CREDI</option>
+                <option value="CHSSA017826 CLINICA DE COLPOSCOPIA (DISPLASIAS)">CHSSA017826 CLINICA DE COLPOSCOPIA (DISPLASIAS)</option>
+            </select>
+
+        </fieldset>
+        <input type="submit" value="Guardar Datos">
+        <input type="button" value="Regresar"  style="color: white; background-color: blue; "onclick="window.location.href='inicioSesionCoordinar.html'">
+    </form>
+</main>
+
+<footer>
+   
+    <p> Avenida Paseo Triunfo de la República No 3530, 
+        Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+        Ciudad Juárez, Chihuahua, México.
+        <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m.
+        Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510 </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Vacaciones de Pasante</title>
+    <!-- Agregar enlaces a las librerías de jQuery y jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        header {
+            background-color: #f5f5f5;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            max-width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        header h3 {
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            width: calc(100% - 16px);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table td,
+        table th {
+            padding: 5px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 0; /* Elimina las esquinas redondeadas */
+            resize: none; /* Elimina la capacidad de redimensionar */
+        }
+
+        .datetime-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .datetime-container input {
+            width: 48%;
+        }
+
+        button {
+            display: block;
+            background-color: #1d06a1;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #201e52; /* Color de fondo más neutro */
+            border-top: 1px solid #211f5d;
+            padding: 10px 0; /* Padding ajustado */
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+     
+
+        .firmas {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .firma {
+            width: 100%;
+            border-top: 2px solid #000; /* Cambia el color de la línea a negro */
+            padding-top: 10px;
+            text-align: center;
+            margin-top: 20px; /* Espacio entre cada firma */
+        }
+
+        @media print {
+            button {
+                display: none;
+            }
+        }
+        @media print {
+             footer {
+                 display: none;
+             }
+         }
+         @media print {
+             h4 {
+                 display: none;
+             }
+         }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h3>
+                <img src="logo1.png" alt="Logo"> Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+                <br> Departamento de Enseñanza
+            </h3>
+        </header>
+
+        <form id="justificanteForm">
+            <h1>Formato de Vacaciones</h1>
+            <h4>Este formato se entregará en físico</h4>
+
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Nombre:</th>
+                        <td><input type="text" id="nombre" name="nombre" required></td>
+                    </tr>
+                    <tr>
+                        <th>Área:</th>
+                        <td>
+                            <select id="area" name="area" required>
+                                <option value="1">Medicina</option>
+                                <option value="2">Enfermería</option>
+                                <option value="3">Odontología</option>
+                                <option value="4">Radiología</option>
+                                <option value="5">Nutrición</option>
+                                <option value="6">Terapia Fisica</option>
+                                <option value="7">Psicología</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Promoción:</th>
+                        <td>
+                            <select id="promocion" name="promocion" required>
+                                <option value="1">Promoción Agosto 2024</option>
+                                <option value="2">Promoción Febrero 2025</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                <table>
+                    
+                    <tr>
+                        <th>Periodo del Servicio <br>Social:</th>
+                        <td>
+                            <input type="text" id="inicioVacaciones" name="inicioVacaciones" placeholder="Inicio" required>
+                            <input type="text" id="finVacaciones" name="finVacaciones" placeholder="Fin" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Jurisdicción:</th>
+                        <td><textarea id="jurisdiccion" name="jurisdiccion" rows="4" readonly>JURISDICCIÓN SANITARIA II</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Periodo Vacacional:</th>
+                        <td>
+                            <select id="periodoVacacional" name="periodoVacacional" required>
+                                <option value="Primero">Primero</option>
+                                <option value="Segundo">Segundo</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <label for="adscripcion">Unidad de Adscripción:</label>
+            <textarea id="adscripcion" name="adscripcion" rows="4" required></textarea>
+
+            <div class="firmas">
+                <div class="firma">
+                    <label for="firmaSolicitante">Firma del Solicitante:</label>
+                </div>
+                <div class="firma">
+                    <label for="firmaJefeInmediato">Firma del Jefe Inmediato:</label>
+                </div>
+            </div>
+            <br>
+
+            <div class="firmas">
+                <div class="firma">
+                    <label for="firmaJefeDepartamento">Firma del Jefe de Departamento:</label>
+                </div>
+                <div class="firma">
+                    <label for="firmaCoordinadora">Firma de la Coordinadora de Enseñanza:</label>
+                </div>
+            </div>
+            
+            <br>
+            
+            <button id="btnImprimir" onclick="imprimir()">Imprimir Formulario</button>
+            <a href="inicioSesionDirectorUnidad.html"><button type="button">Regresar</button></a>
+
+
+        </form>
+        <br>
+
+        <footer>
+            <p> Avenida Paseo Triunfo de la República No 3530,
+                Col. Partido Escobedo (a un costado del Hospital de la Mujer).
+                Ciudad Juárez, Chihuahua, México.
+                <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m.
+                Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510 </p>
+        </footer>
+    </div>
+
+    <script>
+        $(function () {
+            // Inicializar el DatePicker en el campo de fecha
+            $("#inicioVacaciones, #finVacaciones").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
+        });
+
+        function imprimir() {
+            window.print();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formato de Comisión</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #f5f5f5;
+      padding: 10px;
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 0; /* Elimina el margen superior */
+    }
+
+    header img {
+      max-width: 50px;
+      height: auto;
+      margin-right: 5px;
+    }
+
+    header h3 {
+      font-size: 25px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      background-color: #d4b996;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 8px;
+    }
+
+    table th, table td {
+      padding: 3px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    table th {
+      background-color: #f2f2f2;
+      text-align: left;
+      width: 30%; 
+    }
+
+    input[type="text"], input[type="number"] {
+      width: calc(100% - 12px);
+      padding: 6px;
+      margin-bottom: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .firma-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+    }
+
+    .firma, .autorizado, .administrador {
+      width: 48%;
+      border: 2px solid #000;
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    .firma p, .autorizado p, .administrador p {
+      text-align: center;
+      margin: 4px 0;
+    }
+
+    .firma label, .autorizado label, .administrador label {
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .firma-oculta {
+      display: none;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    input[type="radio"] {
+      margin-right: 1px;
+    }
+
+    button {
+      display: block;
+      background-color: #1d06a1;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 10px;
+      align-items: center;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #201e52;; /* Color de fondo más neutro */
+      border-top: 1px solid #201e52;; 
+      text-align: center;
+      color: white; /* Texto más oscuro */
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      justify-content: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+
+    @media print {
+      button {
+        display: none;
+      }
+      footer {
+        display: none;
+      }
+
+    
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      border-radius: 0;
+      max-width: 100%;
+      page-break-inside: avoid; /* Evitar saltos de página dentro del contenedor */
+    }
+
+    table {
+      page-break-inside: avoid; /* Evitar saltos de página dentro de las tablas */
+    }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h3>
+      <img src="logo1.png" alt="Logo">
+      Servicios de Salud de Chihuahua Jurisdicción Sanitaria II
+      <br> Departamento de Enseñanza 
+    </h3>
+  </header>
+  <div class="container">
+    <h1>Formato de Comisión</h1>
+    <table>
+      <tr>
+        <th>OFICIO COMISION NUM.:</th>
+        <td><input type="text" name="oficio"></td>
+        <th>CD. JUAREZ, CHIH., A:</th>
+        <td><input type="text" name="ciudad"></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>Dirigido a:</th>
+        <td colspan="3"><input type="text" name="cargo"></td>
+      </tr>
+      <tr>
+        <th>Cargo:</th>
+        <td><input type="text" name="cargo"></td>
+        <th>Unidad / Departamento:</th>
+        <td><input type="text" name="departamento"></td>
+      </tr>
+      <tr>
+        <th>Presente:</th>
+        <td colspan="3"><input type="text" name="presente"></td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th colspan="4"><div style="text-align:center;">Por este conducto, me permito informarle que ha sido comisionado para:</th></div>
+      </tr>
+      <td colspan="4"><input type="text" name="para"></td>
+      <tr>
+        <th>Motivo de la comisión:</th>
+        <td colspan="3"><input type="text" name="motivo"></td>
+      </tr>
+      <tr>
+        <th>Periodo de la comisión:</th>
+        <td colspan="3"><input type="text" name="periodo"></td>
+      </tr>
+      <tr>
+        <th>Lugar de la comisión:</th>
+        <td colspan="5"><input type="text" name="lugar"></td>
+      </tr>
+      <tr>
+        <th>Horario de la comisión:</th>
+        <td colspan="3"><input type="text" name="horario"></td>
+      </tr>
+      <tr>
+        <th colspan="4"><div style="text-align:center;">Se otorgarán días compensados de la presente comisión:</div></th>
+      </tr>
+      <tr>
+        <td><input type="radio" name="compensados" value="SI" onchange="mostrarFirmas(this)"> SI</td>
+        <td><input type="radio" name="compensados" value="NO" onchange="mostrarFirmas(this)"> NO</td>
+        <th><div style="text-align:center;">Numero de días:</th></div>
+        <td colspan="2"><input type="number" name="num_dias"></td>
+      </tr>
+    </table>
+    <div style="text-align:center;">
+      <p style="font-size: 14px;">En caso de autorización de tiempo compensado, deberá anexar al presente justificación y evidencia de la comisión.</p>
+    </div>
+    <div class="firma-container">
+      <div class="firma">
+        <label for="firmaConformidad">Firma de Conformidad</label>
+        <br>
+        <br>
+        <p>Pasante</p>
+      </div>
+      <div class="autorizado">
+        <label for="autorizado">AUTORIZADO</label>
+        <br>
+        <br>
+        <p>Director de Unidad - Nombre y firma</p>
+
+      </div>
+    </div>
+
+    <div class="firma-container" id="firmas">
+      <div class="firma firma-oculta">
+        <label for="coordinador">Coordinador de Enseñanza</label>
+        <br>
+        <br>
+        <p>Nombre y firma</p>
+      </div>
+      <div class="administrador firma-oculta">
+        <label for="administrador">Administrador Juridiccional</label>
+        <br>
+        <br>
+        <p>Nombre y firma</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 10px; margin-bottom: 5px;">
+      <p style="font-size: 12px;">C.C. Recursos Humanos</p>
+    </div>
+
+    <button id="btnImprimir" onclick="imprimir()">Imprimir</button>
+    <a href="inicioSesionCoordinar.html"><button type="button">Regresar</button></a>
+    
+  </div>
+  
+
+  <footer>
+   
+    <p>Avenida Paseo Triunfo de la República No 3530, 
+      Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+      Ciudad Juárez, Chihuahua, México. 
+      <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m. 
+      Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510</p>
+  </footer>
+
+  <script>
+    function imprimir() {
+      window.print();
+    }
+
+    function mostrarFirmas(radio) {
+  var firmasContainer = document.getElementById("firmas");
+  var firmas = firmasContainer.children; // Obtener todos los elementos hijos
+
+  if (radio.value === "SI") {
+    for (var i = 0; i < firmas.length; i++) {
+      if (firmas[i].classList.contains("firma-oculta")) {
+        firmas[i].classList.remove("firma-oculta"); // Mostrar contenedores de firma
+      }
+    }
+  } else {
+    for (var i = 0; i < firmas.length; i++) {
+      if (!firmas[i].classList.contains("firma-oculta")) {
+        firmas[i].classList.add("firma-oculta"); // Ocultar contenedores de firma
+      }
+    }
+  }
+}
+  </script>
+</body>
+</html>

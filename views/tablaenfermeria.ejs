@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.4/xlsx.full.min.js"></script>
+
+<title>Tabla de Datos Enfermeria</title>
+</head>
+<style>
+     body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+    header {
+            background-color: #f2f2f2;
+            color: rgb(3, 3, 3);
+            text-align: center;
+            padding: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+    header h3 {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    nav {
+            background: #ebe8e8;
+            padding: 5px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: rgb(12, 12, 12);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color:#244365;
+            color: white;
+            
+        }
+
+        footer {
+            background-color: #201e52; /* Color de fondo más neutro */
+            border-top: 1px solid #211f5d;
+            padding: 10px 0; /* Padding ajustado */
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
+       
+        }
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    main {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+    }
+
+       /* Estilo del formulario de búsqueda */
+       .search-form {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-input {
+        margin-right: 10px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 200px;
+    }
+
+    .search-button {
+        padding: 8px 16px;
+        background-color: #007bff; /* Azul */
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .search-button:hover {
+        background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    }
+
+    button {
+        display: block;
+        background-color: #1d06a1;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 1%;
+        width: 10%;
+        transition: background-color 0.3s ease;
+        margin-right: 1%;
+        margin-top: 1%;
+        margin-block-end: auto;
+
+    }
+ 
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    
+
+</style>
+
+<body>
+
+  <header>
+    <img  src="logo1.png" alt="Logo">
+
+    <h3>Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+        <br> Departamento de Enseñanza
+    </h3>
+</header>
+
+<h2>Promoción Agosto 2024 - Enfermería </h2>
+
+<nav>
+    <a href="registra.html">Registro de Pasantes</a>
+    <a href="datosdepasante.html">Datos de Pasantes</a>
+    <a href="gestionAsistencia.html">Asistencia</a>
+    <a href="gestionIncidencias.html">Incidencias</a>
+    <a href="jornadas.html">Jornadas</a>
+    <a href="hojaComision1.html">Formato de Comision</a>
+    <a href="formularioJustificante2.html">Generar Justificante</a>
+    <a href="formularioVacaciones2.html">Generar Permiso Vacacional</a>
+    <a href="editarcalendario.html">Eventos</a>
+    <a style="float: right;" href="promocionAgosto.html">Regresar</a>
+    <a style="float: right;" href="inicio.html">Cerrar Sesión</a>
+</nav>
+
+<form class="search-form">
+    <input class="search-input" id="buscador" type="text" placeholder="Buscar por idpasante">
+    <button style="background-color: rgb(53, 226, 111);"     onclick="descargarExcel()">Descargar Excel</button>
+
+    <button onclick="imprimir()">Imprimir</button>
+   
+</form>
+
+    <div class="container mt-5">
+
+            <main>
+            <table id="table">
+                <thead class="table-sucess">
+                    <tr>
+                        <th>ID Pasante</th>
+                        <th>Nombre</th>
+                        <th>RFC</th>
+                        <th>CURP</th>
+                        <th>Sexo</th>
+                        <th>Estado Civil</th>
+                        <th>Calle y Numero</th>
+                        <th>Colonia</th>
+                        <th>Codigo Postal</th>
+                        <th>Delegacion</th>
+                        <th>CLABE Interbancaria</th>
+                        <th>Banco</th>
+                        <th>Promocion</th>
+                        <th>Unidad</th>
+                        <th>Departamento</th>
+                        <th>Plaza</th>
+                        <th>CLUES</th>
+                        <th>Jornada</th>
+                        <th>Horario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% resultados.forEach(function(row) { %>
+                    <tr>
+                        <td class="text-center"><%= row.usuario %></td>
+                        <td class="text-center"><%= row.nombre %></td>
+                        <td class="text-center"><%= row.rfc %></td>
+                        <td class="text-center"><%= row.curp %></td>
+                        <td class="text-center"><%= row.sexo %></td>
+                        <td class="text-center"><%= row.estadocivil %></td>
+                        <td class="text-center"><%= row.calle_numero %></td>
+                        <td class="text-center"><%= row.colonia %></td>
+                        <td class="text-center"><%= row.codigopostal %></td>
+                        <td class="text-center"><%= row.delegacion %></td>
+                        <td class="text-center"><%= row.clabeban %></td>
+                        <td class="text-center"><%= row.banco %></td>
+                        <td class="text-center"><%= row.promocion %></td>
+                        <td class="text-center"><%= row.unidad %></td>
+                        <td class="text-center"><%= row.departamento %></td>
+                        <td class="text-center"><%= row.plaza %></td>
+                        <td class="text-center"><%= row.clues %></td>
+                        <td class="text-center"><%= row.turno %></td>
+                        <td class="text-center"><%= row.horario %></td>
+                        
+                    </tr>
+                  <% }); %>
+                </tbody>
+            </table>
+           
+        </main>     
+        
+    </div>
+
+<script>
+
+function imprimir() {
+            window.print();
+        }
+
+    
+        function descargarExcel() {
+        const tabla = document.getElementById('table'); // Corregir el identificador de la tabla
+        const wb = XLSX.utils.table_to_book(tabla);
+
+        // Convertir el libro de Excel a un archivo binario
+        const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+
+        // Función auxiliar para convertir un array de bytes en un blob
+        function s2ab(s) {
+            const buf = new ArrayBuffer(s.length);
+            const view = new Uint8Array(buf);
+            for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+            return buf;
+        }
+
+        // Crear un blob y descargar el archivo
+        const blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'reporte.xlsx';
+        document.body.appendChild(link);
+        link.click();
+        setTimeout(() => {
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const inputBusqueda = document.getElementById('buscador');
+        inputBusqueda.addEventListener('input', function() {
+            const valorBusqueda = inputBusqueda.value.toLowerCase().trim();
+            const filas = document.querySelectorAll('#table tbody tr');
+            filas.forEach(function(fila) {
+                const idPasante = fila.querySelector('td:first-child').textContent.toLowerCase();
+                if (idPasante.includes(valorBusqueda)) {
+                    fila.style.display = '';
+                } else {
+                    fila.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+<footer>
+   
+    <p> Avenida Paseo Triunfo de la República No 3530, 
+        Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+        Ciudad Juárez, Chihuahua, México.
+        <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m.
+        Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510 </p>
+</footer>
+
+ 
+</body>
+</html>
+
+
+
+
+
+

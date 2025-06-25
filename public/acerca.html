@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        }
+
+        .container {
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        }
+
+        header {
+        background-color: #f5f5f5;
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+        color: #333;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+        max-width: 100px;
+        height: auto;
+        margin-right: 10px;
+        }
+        header h3 {
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        }
+
+        .navbar {
+        overflow: hidden;
+        background-color: #e0e0e0; /* Color de fondo más neutro */
+        font-size: 16px; /* Tamaño de fuente reducido */
+        display: flex; /* Para alinear elementos */
+        justify-content: space-between; /* Para separar los elementos en los extremos */
+        align-items: center; /* Para centrar verticalmente */
+        padding: 0 20px; /* Agregar un poco de espacio en los lados */
+        }
+        .dropdown {
+        float: left;
+        overflow: hidden;
+        }
+        .dropdown .dropbtn {
+        font-size: 18px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: #201e52;
+        font-family: inherit;
+        margin: 0;
+        transition: background-color 0.3s;
+        border-bottom: 1px solid #ccc;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+        background-color: #efe6d4;
+        }
+        .submenu .submenu-content {
+        display: none;
+        position: absolute;
+        background-color: #efe6d4; /* Beige */
+        min-width: 160px;
+        z-index: 1;
+        left: 100%;
+        margin-top: -1px;
+        left: calc(100% + 5px); /* Coloca el submenú a la derecha con un pequeño espacio de separación */
+        }
+
+        .submenu:hover .submenu-content {
+        display: block;
+        left: 100%; /* Ajusta el submenú hacia la derecha */
+        top: 0; /* Asegura que el submenú comience desde la parte superior */
+        }
+        .submenu {
+        position: relative;
+        }
+        .submenu .submenu-content-right {
+        display: none;
+        position: absolute;
+        background-color: #efe6d4;
+        min-width: 160px;
+        z-index: 1;
+        top: 0;
+        left: 100%;
+        }
+        .submenu:hover .submenu-content-right {
+        display: block;
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #efe6d4;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        float: none;
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        border-bottom: 1px solid #201e52;
+        left: 100%;
+        top: 0;
+        font-weight: bold;
+        }
+
+        .dropdown-content a:hover {
+        background-color: #201e52; /* Cambia el color de fondo de los elementos del menú desplegable al pasar el mouse sobre ellos */
+        color: #fff; /* Cambia el color del texto al pasar el mouse sobre los elementos del menú desplegable */
+        }
+        .dropdown:hover .dropbtn {
+        background-color: #d4b996; /* Cambia el color de fondo del botón al pasar el mouse sobre él */
+        color: #fff; /* Cambia el color del texto al pasar el mouse sobre él */
+        }
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+        section h2 {
+        font-size: 28px;
+        color: #4282e0;
+        font-weight: bold;
+        }
+        li a:hover, .dropdown:hover .dropbtn {
+        background-color: #0f0a96;
+        color: #fff;
+        }
+        h2 span {
+        background-color: #d4b996; /* Fondo del texto */
+        padding: 5px 10px; /* Espaciado interno */
+        border-radius: 10px; /* Bordes redondeados */
+        }
+
+        h2 {
+        display: inline-block; /* Para que respete el ancho de su contenido */
+        }
+        
+    
+        footer {
+          background-color: #201e52;; /* Color de fondo más neutro */
+            border-top: 1px solid #201e52;; 
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        
+        }
+
+        footer img {
+        max-width: 100px;
+        height: auto;
+        margin-right: 10px;
+        }
+
+        .footer-text {
+        flex: 1;
+        text-align: left;
+        }
+       
+        
+        .feedback-message {
+        background-color: #fff; /* Color de fondo */
+        padding: 20px; /* Espacio interno */
+        border-radius: 8px; /* Bordes redondeados */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        margin-bottom: 20px; /* Espacio entre elementos */
+        }
+
+    </style>
+</head>
+<div class="container">
+    <header>
+      <h3>
+        <img src="logo1.png" alt="Logo">
+            Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+            <br> Departamento de Enseñanza 
+      </h3>
+    </header>
+
+    <nav class="navbar">
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a class="menu-inicio" href="inicio.html">Inicio</a>
+                <div class="submenu">
+                    <a class="menu-usuario" href="#">Usuarios</a>
+                    <div class="submenu-content">
+                        <a href="cordinador.html">Coordinador</a>
+                        <a href="director.html">Director de Unidad</a>
+                        <a href="cordinador.html">Pasantes</a>
+                    </div>
+                </div>
+                <a class="menu-vinculacion" href="acerca.html">Acerca de Nosotros</a>
+                <div class="submenu">
+                    <a class="menu-investigacion" href="#">Investigación</a>
+                    <div class="submenu-content-right">
+                      <a href="liberacionServicio.html">Liberación de Servicio</a>
+                      <a href="trabajoFinal.html">Trabajo Final</a>
+                    </div>
+                  </div>
+                <a class="menu-vinculacion" href="vinculacion.html">Vinculación</a>
+                <a class="menu-directorios" href="directorio.html">Directorio</a>
+                <a class="menu-servicios" href="servicios.html">Servicios</a>
+                <a class="menu-buzon" href="buzon.html">Buzón de quejas y suguerencias</a>
+                <a class="menu-calendario" href="/ver-evento">Calendario</a>
+            </div>
+      </div>
+      
+    </nav>
+
+    <main>
+     <br>
+     <div style="display: flex; justify-content: center;">
+        <div class="feedback-message" style="width: 70%; text-align: center;">
+            <h2 style="font-size: 24px;"><span onclick="toggleVisibility('mision')" style="cursor: pointer;">Misión</span></h2>
+            <p style="font-size: 16px; display: none; text-align: justify; margin-bottom: 20px;" id="mision">
+                Proporcionar al pasante de medicina, enfermería, odontología, nutrición, técnico radiólogo, 
+                terapia física y rehabilitación, que mediante el Servicio Social adquieran los conocimientos 
+                necesarios para su rápida y efectiva integración a la comunidad para que sea capaz de identificar 
+                los problemas, tomar decisiones correctas y generar soluciones en respuesta a las necesidades de la población, 
+                todo esto a través de diversas estrategias de comunicación educativa, con participación docente directa y
+                 a distancia.
+              </p>
+        
+              <h2 style="font-size: 24px;"><span onclick="toggleVisibility('vision')" style="cursor: pointer;">Visión</span></h2>
+              <p style="font-size: 16px; display: none; text-align: justify; margin-bottom: 20px;" id="vision">
+                1. Cumplimiento al Programa Académico de Servicio Social permitiría la ubicación de los prestadores de servicio 
+                en las unidades de salud. Además de Promover el desarrollo académico del pasante de acuerdo a la realidad de su 
+                entorno social e iniciar la vinculación permanente del médico con la escuela de procedencia y la institución 
+                receptora. Para fortalecer la rápida integración del pasante a la comunidad. 
+                <br>
+                <br> 2. Contribuir al proceso de enseñanza-aprendizaje de los prestadores de servicio social y favorecer el proceso
+                formativo a distancia. 
+                <br>
+                <br> 3. Fomentar la investigación en salud pública en los Servicios de Salud de Chihuahua.
+                <br>
+                <br> 4. Coordinar esfuerzos entre las instituciones educativas y de salud a fin de consolidar la formación de 
+                recursos humanos en salud con alta capacidad resolutiva. Fortalecer la rápida integración del pasante a la 
+                comunidad.
+                <br>
+                <br> 5. Estimular el desempeño ético y profesional del pasante en servicio social. 
+                Este programa tiene como objetivo fundamental proporcionarle al pasante en Servicio Social los conocimientos 
+                necesarios para su rápida y efectiva integración a la comunidad para que sea capaz de identificar los problemas, 
+                tomar decisiones correctas y generar soluciones en respuesta a las necesidades de la población,
+                todo esto a través de diversas estrategias de comunicación educativa, con participación docente directa y a 
+                distancia.
+              </p>
+        
+              <h2 style="font-size: 24px;"><span onclick="toggleVisibility('reglamento')" style="cursor: pointer;">Reglamento</span></h2>
+                <p style="font-size: 16px; display: none; text-align: justify;"  id="reglamento">
+                    <strong style="display: block; text-align: center;">Derechos y Obligaciones de los Pasantes</strong> 
+                <br>
+                <br>
+                    <strong style="display: block; text-align: center;"> Los pasantes tendrán los siguientes derechos durante la prestación del servicio social:</strong>
+                    <br>
+                    I.	Recibir la beca económica correspondiente. 
+                    <br>
+                    <br>
+                    II.	Dos periodos vacacionales de 10 días hábiles cada uno, los cuales se les otorgarán de acuerdo con el calendario aprobado 
+                    por las autoridades respectivas en sus lugares de adscripción.
+                    <br>
+                    <br>
+                    III.	Licencia por gravidez, con una duración de 90 días naturales, un mes antes y 2 después del parto,
+                    sin detrimento del pago de la beca ni del cómputo del tiempo de servicio.
+                    <br><br>
+
+                    IV.	  Recibir asistencia médica, quirúrgica, hospitalaria y de medicamentos durante la prestación del 
+                    servicio social por parte de la institución a la cual estén adscritos. Dicha asistencia se hará 
+                    extensiva a los familiares en línea directa.
+                    <br>
+                    <br>
+                    V.	  Cuando sufran algún accidente en el cumplimiento de sus actividades dentro del servicio social, 
+                    recibirán una cantidad equivalente a la prescrita para la responsabilidad civil por causa contractual 
+                    de acuerdo con lo que señala el Código Civil para la Ciudad de México, en materia común, y para toda la 
+                    República en materia federal, cuando por accidente resulte una incapacidad total o parcial.
+                    <br>
+                    <br>
+                    VI.	En caso de defunción, los familiares recibirán la cantidad correspondiente al seguro de vida.
+                    <br>
+                    <br>
+                    VII.	Ser tratado en forma atenta y respetuosa por sus superiores, iguales y subalternos, 
+                    así como ser escuchado por las autoridades respectivas.
+                    <br>
+                    <br>
+                    <strong style="display: block; text-align: center;">Obligaciones de los pasantes:</strong>
+                    <br>
+
+                    VIII.	Cumplir en todos los términos con el Programa de Servicio Social y asistir a las reuniones que convoquen sus jefes inmediatos.
+                    <br>
+                    <br>
+                    IX.	Comunicar por escrito inmediatamente a sus superiores cualquier irregularidad que observen en el servicio.
+                    <br>
+                    <br>
+                    X.	   Tratar y dirigirme con respeto a sus superiores, iguales y subalternos, así como a los pacientes que concurran al establecimiento donde presten 
+                    el servicio.
+                    <br>
+                    <br>
+                    XI.	    Ser responsable del manejo de documentos, valores y efectos que tengan bajo su custodia con motivo de sus 
+                    actividades.
+                    <br>
+                    <br>
+                    XII.	Permanecer en el servicio hasta hacer entrega de los fondos, valores o bienes de cuya administración o guarda sea responsable en un plazo máximo de 15 días naturales 
+                    después de haber concluido el servicio social.
+                    <br>
+                    <br>
+                    XIII.	Cumplir con el tiempo exclusivo en las plazas tipo “C”.
+                    <br>
+                    <br>
+                    <strong style="display: block; text-align: center;">Son faltas imputables a los pasantes:</strong>
+                    <br>
+                    XIV.	Distraer su atención durante el horario de servicio, para realizar otras actividades distintas a las que se les asignaron.
+                    <br>
+                    <br>
+                    XV.	    Aprovechar los servicios o personal en asuntos particulares o ajenos a los de la institución a la cual estén adscritos.
+                    <br>
+                    <br>
+                    XVI.	Incurrir en actos de violencia, amagos, injurias o malos tratos contra sus jefes o compañeros o contra los familiares de unos u otros, ya sea dentro o fuera de las horas de servicio.
+                    <br>
+                    <br>
+                    XVII.	Ausentarse de sus actividades sin autorización escrita de su jefe inmediato o faltar a las reuniones de trabajo sin causa justificada.
+                    <br>
+                    <br>
+                    XVIII.	Sustraer del establecimiento materiales o medicamentos pertenecientes a la unidad médica a la cual esté adscrito, sin autorización por escrito de sus superiores.
+                    <br>
+                    <br>
+                    XIX.	Propiciar y celebrar en el establecimiento donde esté adscrito, cualquier reunión ajena a los intereses de la institución.
+                    <br>
+                    <br>
+                    XX.	    Presentarse bajo los efectos de bebidas embriagantes, estupefacientes o psicotrópicos durante el horario en que preste su servicio.
+                    <br>
+                    <br>
+                    XXI.	Abandonar el servicio para iniciar el disfrute de vacaciones, licencias por gravidez e incapacidad médica que hubiese solicitado sin haber obtenido autorización por escrito.
+                    <br>
+                    <br>
+                    XXII.	Realizar actos inmorales en el establecimiento o en la comunidad a la cual estén adscritos.
+                    <br>
+                    <br>
+                    XXIII.	Comprometer con su imprudencia, descuido o negligencia, la seguridad del lugar donde realiza su servicio social o la de las personas que ahí se encuentran, así como causar daños o destruir intencionalmente edificios, instalaciones, obras, maquinaria, instrumentos, muebles, útiles de trabajo, materiales y demás objetos que estén al servicio de la institución a donde estén adscritos.
+                    <br>
+                    <br>
+                    XXIV.	Cobrar por cualquier servicio que esté incluido en sus actividades, así como vender medicamentos para beneficio personal dentro del horario señalado y dentro de los establecimientos donde presten sus servicios.
+                    <br>
+                    <br>
+                    XXV.	El incurrir en cualquier violación a la ética profesional a juicio de la institución de salud, y
+                    responder por los daños que les fueran imputables, cuando estos sean causados a los bienes que estén al servicio de la institución en la cual presten su servicio.
+                    <br>
+                    <br>
+                   <strong style="display: block; text-align: center;">MEDIDAS DISCIPLINARIAS</strong>
+                    <br>
+                    <strong style="display: block; text-align: center;">Las medidas disciplinarias consistirán en:</strong>
+                    <br>
+                    a.-	Amonestación verbales
+                    <br>
+                    <br>
+                    b.-	Extrañamientos escritos
+                    <br>
+                    <br>
+                    c.-	Cancelación del servicio social
+                   <br>
+                   <br>
+                   <strong style="display: block; text-align: center;">A.</strong>	
+                   Las amonestaciones verbales serán hechas en privado por el director o responsable del establecimiento al cual esté adscrito y se aplicarán cuando los pasantes violen las fracciones I, II, IV, VI, VII, IX y XII del apartado 3.
+                    <br>
+                    <br>
+                    <strong style="display: block; text-align: center;">B.</strong> 	
+                    El extrañamiento es la severa observación por escrito que se aplicará a los pasantes que incurran en las faltas que así lo ameriten.
+                    Se harán acreedores a un extrañamiento los pasantes que infrinjan las fracciones III, V, VII, X y XII del apartado 3. Esta sanción será aplicable también en caso de 
+                    reincidencia al cumplimiento de la fracción I del apartado 2, y de las fracciones I, II, IV, VII, IX y XII del apartado 3.
+                    <br>El encargado de aplicarlo será el director o responsable del establecimiento al cuál esté adscrito el pasante; una copia se agregará a su expediente personal y otra se enviará a la institución educativa de procedencia.
+                    <br>
+                    <br>
+                    <strong style="display: block; text-align: center;"> C.	</strong>
+                    <br>La cancelación del servicio social será procedente cuando el pasante incurra en algunas de las siguientes causas:
+                    <br>
+                    <br>1.-	El pasante acumule más de 3 faltas injustificadas de asistencia en un periodo de 30 días.
+                    <br>
+                    <br>2.- Por no permanecer en el lugar de la práctica hasta hacer entrega de los bienes, fondos y valores que estén bajo su custodia, durante los 15 días inmediatos una vez que haya concluido el servicio social.
+                    <br>
+                    <br>3.-	Proponer y/o realizar estudios y tratamientos a usuarios fuera de la institución a la que esté adscrito.
+                    <br>
+                    <br>4.-	Por sentencia condenatoria cuando cometa algún delito de orden común, y
+                    <br>
+                    <br>5.-	Cuando previo extrañamiento se reincida en la violación de las fracciones I, IV y VI del apartado y III, IV, VII, X, XI y XII del apartado.
+                    <br>
+                    <br><strong style="display: block; text-align: justify;"> Para proceder a la suspensión del servicio social deberá anexarse a la baja, el acta administrativa correspondiente en la cual conste el motivo que provoca dicha cancelación.
+                    La Dirección General de Enseñanza en Salud, comunicará a las instituciones educativas las cancelaciones correspondientes.</strong>
+              </p>
+            </div>
+          </div>
+          <div style="text-align: center;">
+        <img src="mision.jpg" alt="Misión" style="width: 40%; height: auto; display: block; margin: 0 auto;">
+    </div> 
+        </div>
+     </div>
+    
+    </main>
+
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
+
+    <br>
+
+    <footer>
+     
+      <p>Avenida Paseo Triunfo de la República No 3530, 
+        Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+        Ciudad Juárez, Chihuahua, México. 
+        <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m. 
+        Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510</p>
+    </footer>
+  </div>
+
+</body>
+</html>

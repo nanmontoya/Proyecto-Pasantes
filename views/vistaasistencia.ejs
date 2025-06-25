@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vista de Asistencia</title>
+</head>
+<style>
+     body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+    header {
+            background-color: #f2f2f2;
+            color: rgb(3, 3, 3);
+            text-align: center;
+            padding: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+    header h3 {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    nav {
+            background: #ebe8e8;
+            padding: 5px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: rgb(12, 12, 12);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color:#244365;
+            color: white;
+            
+        }
+
+        footer {
+            background-color: #201e52; /* Color de fondo más neutro */
+            border-top: 1px solid #211f5d;
+            padding: 10px 0; /* Padding ajustado */
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
+        }
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    main {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+    }
+
+       /* Estilo del formulario de búsqueda */
+       .search-form {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-input {
+        margin-right: 10px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 200px;
+    }
+
+    .search-button {
+        padding: 8px 16px;
+        background-color: #007bff; /* Azul */
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .search-button:hover {
+        background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    }
+
+    
+
+</style>
+
+<body>
+
+  <header>
+    <img  src="logo1.png" alt="Logo">
+
+    <h3>Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+        <br> Departamento de Enseñanza
+    </h3>
+</header>
+
+<h2> Registro de Asistencia - Pasantes </h2>
+
+<nav>
+    <a href="datosPasantes.html">Datos</a>
+    <a href="actualizar.html">Actualizar Datos</a>
+    <a href="asistencia.html">Asistencia</a>
+    <a href="actualizar_contrasena.html">Actualizar Contraseña</a>
+    <a href="formularioJustificante.html">Generar Justificante</a>
+    <a href="formularioVacaciones.html">Generar Permiso Vacacional</a>
+    <a style="float: right;" href="iniciarSesionPasante.html">Regresar</a>
+    
+</nav>
+
+    <div class="container mt-5">
+
+            <main>
+            <table id="table">
+                <thead class="table-sucess">
+                    <tr>
+                        
+                        <th>Nombre</th>
+                        <th>Departamento</th>
+                        <th>Promocion</th>
+                        <th>Unidad</th>
+                        <th>Mes</th>
+                        <th>Faltas</th>
+                        <th>Retardos</th>
+                        <th>Incidencias</th>
+                        <th>Notas Malas</th>
+                        <th>Periodo</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                  <% resultados.forEach(function(row) { %>
+                    <tr>
+                        <td class="text-center"><%= row.nombre %></td>
+                        <td class="text-center"><%= row.departamento %></td>
+                        <td class="text-center"><%= row.promocion %></td>
+                        <td class="text-center"><%= row.unidad %></td>
+                        <td class="text-center"><%= row.mes %></td>
+                        <td class="text-center"><%= row.faltas %></td>
+                        <td class="text-center"><%= row.retardos %></td>
+                        <td class="text-center"><%= row.incidencias %></td>
+                        <td class="text-center"><%= row.notas_malas %></td>
+                        <td class="text-center"><%= row.periodo %></td>
+                        
+                    </tr>
+                  <% }); %>
+                </tbody>
+            </table>
+           
+        </main>     
+        
+    </div>
+
+
+<footer>
+   
+    <p> Avenida Paseo Triunfo de la República No 3530, 
+        Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+        Ciudad Juárez, Chihuahua, México.
+        <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m.
+        Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510 </p>
+</footer>
+
+ 
+</body>
+</html>
+
+
+
+
+
+

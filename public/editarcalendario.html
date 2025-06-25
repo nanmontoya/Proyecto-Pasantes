@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agregar Eventos</title>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css' rel='stylesheet' />
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js'></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    /* Estilos generales */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        max-width: 85%;
+        margin: 20px auto;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center; /* Centra los botones */
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #2b015a;
+    }
+
+    /* Estilos para el calendario */
+    #calendar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #calendar th, #calendar td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+ 
+
+
+    .button-container {
+        margin-top: 20px; /* Espacio entre el calendario y los botones */
+    }
+
+    .button-container button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #2b015a;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0 10px; /* Espacio entre los botones */
+        font-size: 16px; /* Tamaño de la letra */
+        font-weight: bold; /* Texto en negrita */
+    }
+
+    .button-container button:hover {
+        background-color: #2c2d97;
+    }
+
+  
+
+    header {
+            background-color: #f2f2f2;
+            color: rgb(3, 3, 3);
+            text-align: center;
+            padding: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+    header h3 {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+
+    nav {
+            background: #ebe8e8;
+            padding: 5px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: rgb(12, 12, 12);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color:#244365;
+            color: white;
+            
+        }
+
+        footer {
+            background-color: #201e52; /* Color de fondo más neutro */
+            border-top: 1px solid #211f5d;
+            padding: 10px 0; /* Padding ajustado */
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 18%;
+        }
+
+   
+
+</style>
+</head>
+<body>
+
+    <header>
+        <img  src="logo1.png" alt="Logo">
+    
+        <h3>Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+            <br> Departamento de Enseñanza
+        </h3>
+    </header>
+    
+    
+    
+    <nav>
+      
+        <a style="float: right;" href="inicioSesionCoordinar.html">Regresar</a>
+        
+    </nav>
+
+    <h2> Calendario de Eventos </h2>
+
+
+    <div class="container">
+        <h2 style="color: #fff; background-color: #2b015a; font-size: 28px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin-top: 0; padding: 10px 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">Agregar Eventos</h2>
+    
+        <form action="/guardar-evento" method="post">
+            <table id="calendar">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Evento</th>
+                        <th>Descripción</th>
+                       
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                  
+
+                    <tr>
+                        <td><label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha" name="fecha" class="required-field" required><br>
+                        </td>
+                  
+                        <td><label for="evento">Evento:</label>
+                        <input type="text" id="evento" name="evento" class="required-field" required><br>
+                        </td>
+                   
+                        <td><label for="descripcion">Descripción:</label>
+                        <input type="text" id="descripcion" name="descripcion" class="required-field" required></input><br>
+                        </td>
+
+                    </tr>
+                    
+
+                </tbody>
+            </table>
+    
+          
+    
+            <div class="button-container">
+                
+                <button type="submit">Guardar</button>
+
+                <a href="eliminarevento.html"><button type="button">Eliminar Evento</button></a>
+
+            </div>
+        </form>
+    
+      
+    </div>
+    
+</div>
+
+
+
+<footer>
+   
+    <p> Avenida Paseo Triunfo de la República No 3530, 
+        Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+        Ciudad Juárez, Chihuahua, México.
+        <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m.
+        Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510 </p>
+</footer>
+
+</body>
+</html>

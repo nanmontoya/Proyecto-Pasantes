@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>trabajoFinal</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    header {
+      background-color: #f5f5f5;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      max-width: 100px;
+      height: auto;
+      margin-right: 10px;
+    }
+    header h3 {
+     font-size: 24px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0;
+    }
+
+    .navbar {
+      overflow: hidden;
+      background-color: #e0e0e0; /* Color de fondo más neutro */
+      font-size: 16px; /* Tamaño de fuente reducido */
+      display: flex; /* Para alinear elementos */
+      justify-content: space-between; /* Para separar los elementos en los extremos */
+      align-items: center; /* Para centrar verticalmente */
+      padding: 0 20px; /* Agregar un poco de espacio en los lados */
+    }
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+    .dropdown .dropbtn {
+      font-size: 18px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color:  #201e52;
+      font-family: inherit;
+      margin: 0;
+      transition: background-color 0.3s;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+      background-color: #efe6d4;
+    }
+    .submenu .submenu-content {
+     display: none;
+     position: absolute;
+     background-color: #efe6d4; /* Beige */
+     min-width: 160px;
+     z-index: 1;
+     left: 100%;
+     margin-top: -1px;
+     left: calc(100% + 5px); /* Coloca el submenú a la derecha con un pequeño espacio de separación */
+    }
+
+    .submenu:hover .submenu-content {
+      display: block;
+      left: 100%; /* Ajusta el submenú hacia la derecha */
+      top: 0; /* Asegura que el submenú comience desde la parte superior */
+    }
+    .submenu {
+     position: relative;
+    }
+    .submenu .submenu-content-right {
+      display: none;
+     position: absolute;
+     background-color: #efe6d4;
+     min-width: 160px;
+     z-index: 1;
+     top: 0;
+     left: 100%;
+    }
+    .submenu:hover .submenu-content-right {
+      display: block;
+    }
+
+    .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: #efe6d4;
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+     z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      border-bottom: 1px solid #201e52;
+      left: 100%;
+      top: 0;
+      font-weight: bold;
+    }
+
+    .dropdown-content a:hover {
+     background-color: #201e52; /* Cambia el color de fondo de los elementos del menú desplegable al pasar el mouse sobre ellos */
+     color: #fff; /* Cambia el color del texto al pasar el mouse sobre los elementos del menú desplegable */
+    }
+    .dropdown:hover .dropbtn {
+      background-color: #d4b996; /* Cambia el color de fondo del botón al pasar el mouse sobre él */
+      color: #fff; /* Cambia el color del texto al pasar el mouse sobre él */
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    section h2 {
+      font-size: 28px;
+      color: #4282e0;
+      font-weight: bold;
+    }
+    li a:hover, .dropdown:hover .dropbtn {
+      background-color: #0f0a96;
+      color: #fff;
+    }
+    h1 span {
+     background-color: #d4b996; /* Fondo del texto */
+     padding: 5px 10px; /* Espaciado interno */
+     border-radius: 10px; /* Bordes redondeados */
+    }
+
+    h1 {
+      display: inline-block; /* Para que respete el ancho de su contenido */
+    }
+    
+ 
+    footer {
+      background-color: #201e52;; /* Color de fondo más neutro */
+            border-top: 1px solid #201e52;; 
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      
+    }
+
+
+    .footer-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    main img {
+      max-width: 30%;
+      height: auto;
+      display: block;
+      margin: 0 auto; /* Centra la imagen horizontalmente */
+    }
+    .feedback-message {
+      background-color: #fff; /* Color de fondo */
+      padding: 20px; /* Espacio interno */
+      border-radius: 8px; /* Bordes redondeados */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+      margin-bottom: 20px; /* Espacio entre elementos */
+    }
+  
+  </style>
+</head>
+<div class="container">
+    <header>
+      <h3>
+        <img src="logo1.png" alt="Logo">
+            Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+            <br> Departamento de Enseñanza 
+      </h3>
+    </header>
+
+    <nav class="navbar">
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a class="menu-inicio" href="inicio.html">Inicio</a>
+                <div class="submenu">
+                    <a class="menu-usuario" href="#">Usuarios</a>
+                    <div class="submenu-content">
+                        <a href="cordinador.html">Coordinador</a>
+                        <a href="director.html">Director de Unidad</a>
+                        <a href="cordinador.html">Pasantes</a>
+                    </div>
+                </div>
+                <a class="menu-vinculacion" href="acerca.html">Acerca de Nosotros</a>
+                <div class="submenu">
+                    <a class="menu-investigacion" href="#">Investigación</a>
+                    <div class="submenu-content-right">
+                      <a href="liberacionServicio.html">Liberación de Servicio</a>
+                      <a href="trabajoFinal.html">Trabajo Final</a>
+                    </div>
+                  </div>
+                <a class="menu-vinculacion" href="vinculacion.html">Vinculación</a>
+                <a class="menu-directorios" href="directorio.html">Directorio</a>
+                <a class="menu-servicios" href="servicios.html">Servicios</a>
+                <a class="menu-buzon" href="buzon.html">Buzón de quejas y suguerencias</a>
+                <a class="menu-calendario" href="/ver-evento">Calendario</a>
+            </div>
+      </div>
+    
+    </nav>
+
+    <main>
+      <h1><span>Trabajo Final</span>
+      </h1>
+
+     <div style="display: flex; justify-content: center;">
+        <div class="feedback-message" style="width: 70%"; >
+         <p style="font-size: 18px;">
+          Instrucciones para la realización del trabajo final, requisito indispensable para la liberación del Servicio. 
+          <br>
+          <br>
+          Escanea el código QR adjunto para acceder a las instrucciones completas.
+          <br>
+          <br>
+          Puedes enviar avances del Trabajo Final al correo pasantesssjs2@gmail.com
+          </p>
+        </div>
+     </div>
+      <img src="investigacion.jpeg" alt="Investigación">
+    </main>
+
+    <br>
+
+    <footer>
+   
+      <p>Avenida Paseo Triunfo de la República No 3530, 
+         Col. Partido Escobedo (a un costado del Hospital de la Mujer). 
+         Ciudad Juárez, Chihuahua, México. 
+        <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m. 
+        Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510</p>
+    </footer>
+  </div>
+</body>
+</html>

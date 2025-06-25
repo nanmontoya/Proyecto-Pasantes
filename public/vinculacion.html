@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinculación</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        }
+
+        .container {
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        }
+
+        header {
+        background-color: #f5f5f5;
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+        color: #333;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+        max-width: 100px;
+        height: auto;
+        margin-right: 10px;
+        }
+        header h3 {
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        }
+
+        .navbar {
+        overflow: hidden;
+        background-color: #e0e0e0; /* Color de fondo más neutro */
+        font-size: 16px; /* Tamaño de fuente reducido */
+        display: flex; /* Para alinear elementos */
+        justify-content: space-between; /* Para separar los elementos en los extremos */
+        align-items: center; /* Para centrar verticalmente */
+        padding: 0 20px; /* Agregar un poco de espacio en los lados */
+        }
+        .dropdown {
+        float: left;
+        overflow: hidden;
+        }
+        .dropdown .dropbtn {
+        font-size: 18px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: #201e52;
+        font-family: inherit;
+        margin: 0;
+        transition: background-color 0.3s;
+        border-bottom: 1px solid #ccc;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+        background-color: #efe6d4;
+        }
+        .submenu .submenu-content {
+        display: none;
+        position: absolute;
+        background-color: #efe6d4; /* Beige */
+        min-width: 160px;
+        z-index: 1;
+        left: 100%;
+        margin-top: -1px;
+        left: calc(100% + 5px); /* Coloca el submenú a la derecha con un pequeño espacio de separación */
+        }
+
+        .submenu:hover .submenu-content {
+        display: block;
+        left: 100%; /* Ajusta el submenú hacia la derecha */
+        top: 0; /* Asegura que el submenú comience desde la parte superior */
+        }
+        .submenu {
+        position: relative;
+        }
+        .submenu .submenu-content-right {
+        display: none;
+        position: absolute;
+        background-color: #efe6d4;
+        min-width: 160px;
+        z-index: 1;
+        top: 0;
+        left: 100%;
+        }
+        .submenu:hover .submenu-content-right {
+        display: block;
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #efe6d4;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        float: none;
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        border-bottom: 1px solid #201e52;
+        left: 100%;
+        top: 0;
+        font-weight: bold;
+        }
+
+        .dropdown-content a:hover {
+        background-color: #201e52; /* Cambia el color de fondo de los elementos del menú desplegable al pasar el mouse sobre ellos */
+        color: #fff; /* Cambia el color del texto al pasar el mouse sobre los elementos del menú desplegable */
+        }
+        .dropdown:hover .dropbtn {
+        background-color: #d4b996; /* Cambia el color de fondo del botón al pasar el mouse sobre él */
+        color: #fff; /* Cambia el color del texto al pasar el mouse sobre él */
+        }
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+        section h2 {
+        font-size: 28px;
+        color: #4282e0;
+        font-weight: bold;
+        }
+        li a:hover, .dropdown:hover .dropbtn {
+        background-color: #0f0a96;
+        color: #fff;
+        }
+        h1 span {
+        background-color: #d4b996; /* Fondo del texto */
+        padding: 5px 10px; /* Espaciado interno */
+        border-radius: 10px; /* Bordes redondeados */
+        }
+
+        h1 {
+        display: inline-block; /* Para que respete el ancho de su contenido */
+        }
+        
+    
+        footer {
+            background-color: #201e52;; /* Color de fondo más neutro */
+            border-top: 1px solid #201e52;; 
+            text-align: center;
+            color: white; /* Texto más oscuro */
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            justify-content: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+       
+        }
+
+
+        table {
+         border-collapse: collapse;
+         width: 100%;
+        }
+            
+        th, td {
+         border: 1px solid #ddd;
+         padding: 8px;
+         text-align: center;
+        }
+            
+        th {
+          background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<div class="container">
+    <header>
+        <h3>
+            <img src="logo1.png" alt="Logo">
+                Servicios de Salud de Chihuahua Jurisdicción Sanitaria II de Ciudad Juárez
+                <br> Departamento de Enseñanza 
+        </h3>
+    </header>
+
+    <nav class="navbar">
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a class="menu-inicio" href="inicio.html">Inicio</a>
+                <div class="submenu">
+                    <a class="menu-usuario" href="#">Usuarios</a>
+                    <div class="submenu-content">
+                        <a href="cordinador.html">Coordinador</a>
+                        <a href="director.html">Director de Unidad</a>
+                        <a href="cordinador.html">Pasantes</a>
+                    </div>
+                </div>
+                <a class="menu-vinculacion" href="acerca.html">Acerca de Nosotros</a>
+                <div class="submenu">
+                    <a class="menu-investigacion" href="#">Investigación</a>
+                    <div class="submenu-content-right">
+                      <a href="liberacionServicio.html">Liberación de Servicio</a>
+                      <a href="trabajoFinal.html">Trabajo Final</a>
+                    </div>
+                  </div>
+                <a class="menu-vinculacion" href="vinculacion.html">Vinculación</a>
+                <a class="menu-directorios" href="directorio.html">Directorio</a>
+                <a class="menu-servicios" href="servicios.html">Servicios</a>
+                <a class="menu-buzon" href="buzon.html">Buzón de quejas y suguerencias</a>
+                <a class="menu-calendario" href="/ver-evento">Calendario</a>
+        </div>
+      </div>
+     
+    </nav>
+    <main>
+        <h1><span>Vinculación</span></h1>
+    </main>
+    <br>
+
+    <main>
+        <table>
+            <tr>
+                <th>INSTITUCIÓN</th>
+                <th>CARRERA</th>
+            </tr>
+            <tr>
+                <td>Escuela de Trabajo Social del Estado "Profa. Y T.S. Guadalupe Sanchez de Araiza"</td>
+                <td>Trabajo Social</td>
+            </tr>
+            <tr>
+                <td>Patronato Cultural Vizcaya</td>
+                <td>Lic. Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería Adscrita al “Hospital de Jesús”</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería Cruz Roja de Cd. Juárez A.C. </td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería del Instituto Chihuahuense de Salud en Cuauhtémoc.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería del Instituto Chihuahuense de Salud en Juárez.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería y Técnicas de la Salud de la Clínica del Centro.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de enfermería y el Instituto de Estudios en el Área de la Salud Florencia Nightingale, A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Grupo Conversare “Instituto de Formación Humana”.</td>
+                <td>Psicología</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería y Centro de Bachillerato Tecnológico Chihuahua Campus sur.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Fomento Educativo y Cultural Francisco de Ibarra A.C. “Universidad de Durango Campus Chihuahua”.</td>
+                <td>Medicina, Nutrición y Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería de Delicias A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería de Delicias A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Trabajo Social del Estado "Profa. Y T.S. Guadalupe Sanchez de Araiza"</td>
+                <td>Trabajo Social</td>
+            </tr>
+            <tr>
+                <td>Patronato Cultural Vizcaya</td>
+                <td>Lic. Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería Adscrita al “Hospital de Jesús”</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería Cruz Roja de Cd. Juárez A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería del Instituto Chihuahuense de Salud en Cuauhtémoc.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería del Instituto Chihuahuense de Salud en Juárez.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería y Técnicas de la Salud de la Clínica del Centro.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de enfermería y el Instituto de Estudios en el Área de la Salud Florencia Nightingale, A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Grupo Conversare “Instituto de Formación Humana”.</td>
+                <td>Psicología</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería y Centro de Bachillerato Tecnológico Chihuahua Campus sur</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Fomento Educativo y Cultural Francisco de Ibarra A.C. “Universidad de Durango Campus Chihuahua”.</td>
+                <td>Medicina, Nutrición y Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería de Delicias A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería Centro Médico de la Mujer</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería Christus Muguerza del Parque.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería Pablo Meouchi, A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería y Obstetricia del Sanatorio Palmore, A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Universidad del Desarrollo Profesional, S.C. “Campus Chihuahua”</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería Región Centro Sur, A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Centro de Formación Dale, A.C. Escuela de Enfermería Alexia.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Enseñanza e Investigación Superior, A.C. “Universidad Tec Milenio, Campus Juárez”.</td>
+                <td>Nutrición</td>
+            </tr>
+            <tr>
+                <td>Colegio Bella Ronda y España, A.C.</td>
+                <td>Nutrición y Bienestar integral</td>
+            </tr>
+            <tr>
+                <td>Salud y Desarrollo Comunitario de Cd. Juárez, A.C. “Escuela de Enfermería FEMAP”</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>U.V.M. Educación, S.C. "Universidad del Valle de México"</td>
+                <td>Lic. Fisiatria</td>
+            </tr>
+            <tr>
+                <td>Escuela Parralense de Enfermería, A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Universidad Mexicana del Norte, S.C.</td>
+                <td>Terapia Fisica y Rehabilitación</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería del Centro Médico de Especialidades.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Enseñanza e Investigación Superior, A.C. “Universidad Tec Milenio, Campus Chihuahua”.</td>
+                <td>Nutrición</td>
+            </tr>
+            <tr>
+                <td>Promotores Mexicanos de la Educación, A.C. "Universidad Regional del Norte"</td>
+                <td>Nutrición y Gastronomia</td>
+            </tr>
+            <tr>
+                <td>Politécnico de la Frontera, A.C.</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Patronato del Centro Juvenil Parralense, A.C.</td>
+                <td>Tec. Sup. Un. De Imageonología</td>
+            </tr>
+            <tr>
+                <td>Universidad Burrelll College Of Ostespathic Medicine "La Universidad"</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Fomento Educativo y Cultural Francisco de Ibarra A.C. “Universidad de Durango Campus Juárez”.</td>
+                <td>Medicina, Nutrición</td>
+            </tr>
+            <tr>
+                <td>Instituto de Asesoramiento Profesional, A.C. "Mundo Nuevo Parral"</td>
+                <td>Técnico en Gastronomia y administración de Restaurantes</td>
+            </tr>
+            <tr>
+                <td>Acción Educativa e Investigación, A.C,. “Universidad Interamericana Del Norte”</td>
+                <td>Odontología</td>
+            </tr>
+            <tr>
+                <td>Jose Pablo Meouchi Cd. Jimenez</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Veterinaria Educación Profesional en Chihuahua</td>
+                <td>Medico veterinario zootecnista</td>
+            </tr>
+            <tr>
+                <td>Ignacio Allende Izalco Planteles Bolivar e Izalco</td>
+                <td>Tecnico en Enfermería</td>
+            </tr>
+            <tr>
+                <td>Escuela de Enfermería y Centro de Bachillerato Tecnológico Chihuahua. Campus Norte</td>
+                <td>Enfermería</td>
+            </tr>
+            <tr>
+                <td>Promex Educación "Escuela de Ciencias Paramedicas"</td>
+                <td>Tec. Prof. Radiologiía y Tec. Prof. En Analisis Clinicos</td>
+            </tr>
+            <tr>
+                <td>Universidad Autonoma de Chihuahua</td>
+                <td>Mecicina, Odontologia, Enfermeria, Nutrición, Terapia Fisica y Rehabilitación, Ing. Biomedica y Quimico Bacteriologo Parasitologo</td>
+            </tr>
+            <tr>
+                <td>Enseñanza e Investigación Superior, A.C. “Universidad Tec Milenio, Campus Parral”.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Universidad Autonoma de Cd. Juárez</td>
+                <td>Medicina, Odontologia y Enfermeria</td>
+            </tr>
+            <tr>
+                <td>La Universidad Tecnologica de la Tarahumara</td>
+                <td>Tecnico Superior Universitario en Enfermería</td>
+            </tr>
+            <tr>
+                <td>Instituto Amerivent</td>
+                <td>Lic. En Psicologia</td>
+            </tr>
+            <tr>
+                <td>Educación Profesional en Enfermería de Chihuahua "Hospital Angeles"</td>
+                <td>Lic. En Enfermería</td>
+            </tr>
+            <tr>
+                <td>Claustro Universitario de Chihuahua</td>
+                <td>Lic. Psicologia</td>
+            </tr>
+        
+        
+        </table>
+    </main>
+    
+
+    <br>
+
+    <footer>
+      
+      <p>Avenida Paseo Triunfo de la República No 3530,
+        Col. Partido Escobedo (a un costado del Hospital de la Mujer)
+        Ciudad Juárez, Chihuahua, México. 
+        <br> Horario de oficina: Lunes a Viernes de 7:00 a.m. a 3:30 p.m. Teléfonos: (656) 613 3851, (656) 613 5669 y (656) 613 5510</p>
+    </footer>
+  </div>
+</body>
+</html>
